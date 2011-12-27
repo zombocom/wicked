@@ -34,8 +34,6 @@ module Wicked::Controller::Concerns::Steps
     index = steps.index(current_step)
     step = steps.at(index + 1) if index.present?
     step ||= :finish
-    puts "-----------"
-    puts step
     step
   end
 
