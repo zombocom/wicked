@@ -32,10 +32,12 @@ module Wicked::Controller::Concerns::Steps
 
   def next_step(current_step)
     index = steps.index(current_step)
-    if index.present? && index < steps.length
-      return steps.at(index + 1)
-    else
-      return :finish
-    end
+    step = steps.at(index + 1) if index.present?
+    step ||= :finish
+    puts "-----------"
+    puts step
+    step
   end
+
+
 end
