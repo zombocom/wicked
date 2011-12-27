@@ -12,7 +12,7 @@ Wicked is still in development, and I haven't cut a gem yet, in the mean time yo
 
 ```ruby
 
-  gem 'wicked', :git => 'git@github.com:schneems/wicked.git'
+  gem 'wicked', :git => 'git://github.com/schneems/wicked.git'
 
 ```
 
