@@ -2,6 +2,8 @@ PATH
   remote: .
   specs:
     wicked (0.0.1)
+      activesupport (>= 3.0.7)
+      rails (>= 3.0.7)
 
 GEM
   remote: http://rubygems.org/
