@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+ruby_string="ruby-1.9.2-p290"
+gemset_name="wicked"
+
+if rvm list strings | grep -q "${ruby_string}" ; then
+
+  rvm use "${ruby_string}@${gemset_name}" --create
+
+  # Complain if bundler isn't installed
+  if [[ -z "`gem which bundler 2>&1 | grep -v ERROR`" ]]; then
+    echo "You need bundler:"
+    echo ""
+    echo "    gem install bundler"
+    echo ""
+  fi
+else
+  echo "${ruby_string} was not found, please run 'rvm install ${ruby_string}' and then cd back into the project directory."
+fi
