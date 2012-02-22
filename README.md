@@ -16,6 +16,7 @@ Add this to your Gemfile
 
 ```
 
+Then run `bundle install` and you're ready to start
 
 ## How
 
