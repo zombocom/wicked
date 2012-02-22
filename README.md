@@ -8,11 +8,11 @@ Many times I'm left wanting a restful way to display a step by step process that
 
 ## Install
 
-Wicked is still in development, and I haven't cut a gem yet, in the mean time you can add this to your Gemfile
+Add this to your Gemfile
 
 ```ruby
 
-  gem 'wicked', :git => 'git://github.com/schneems/wicked.git'
+  gem 'wicked'
 
 ```
 
@@ -24,8 +24,9 @@ Simply inherit from Wicked::WizardController and you can specify a set of steps.
 ```ruby
   class Users::AfterSignupController < Wicked::WizardController
 
-    steps :confirm_password, :confirm_profile :find_friends
+    steps :confirm_password, :confirm_profile, :find_friends
     # ...
+
 ```
 
 The wizard is set to call steps in order in the show action, you can specify custom logic in your show using a case statement like this:
