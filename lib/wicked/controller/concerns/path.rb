@@ -19,7 +19,7 @@ module Wicked::Controller::Concerns::Path
     options = {
                  :controller => controller,
                  :action     => 'show',
-                 :id         => goto_step || action,
+                 :id         => goto_step || params[:id],
                  :only_path  => true
                }.merge options
     url_for(options)
