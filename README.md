@@ -1,6 +1,6 @@
 # Wicked
 
-Use wicked to make your Rails controllers into step-by-step wizards.
+Use wicked to make your Rails controllers into step-by-step wizards. To see Wicked in action check out the example [Rails app](https://github.com/schneems/wicked_example) or [watch the screencast](http://schneems.com/post/18437886598/wizard-ify-your-rails-controllers-with-wicked).
 
 ## Why
 
@@ -11,9 +11,7 @@ Many times I'm left wanting a restful way to display a step by step process that
 Add this to your Gemfile
 
 ```ruby
-
   gem 'wicked'
-
 ```
 
 Then run `bundle install` and you're ready to start
