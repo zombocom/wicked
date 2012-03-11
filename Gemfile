@@ -11,6 +11,7 @@ group :development do
   gem "rcov",     ">= 0"
   gem "capybara", ">= 0.4.0"
   gem "sqlite3"
+  gem "launchy"
 end
 
 

@@ -28,6 +28,7 @@ GEM
       activemodel (= 3.0.11)
       activesupport (= 3.0.11)
     activesupport (3.0.11)
+    addressable (2.2.7)
     arel (2.0.10)
     builder (2.1.2)
     capybara (1.1.2)
@@ -49,6 +50,8 @@ GEM
       git (>= 1.2.5)
       rake
     json (1.6.4)
+    launchy (2.0.5)
+      addressable (~> 2.2.6)
     mail (2.2.19)
       activesupport (>= 2.3.6)
       i18n (>= 0.4.0)
@@ -104,6 +107,7 @@ DEPENDENCIES
   bundler (~> 1.0.0)
   capybara (>= 0.4.0)
   jeweler (~> 1.6.4)
+  launchy
   rails (>= 3.0.7)
   rcov
   sqlite3
