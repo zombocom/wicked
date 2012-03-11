@@ -18,9 +18,22 @@ Then run `bundle install` and you're ready to start
 
 ## How
 
-Simply inherit from Wicked::WizardController and you can specify a set of steps. Here we have a controller called Users::AfterSignupController with existing routes.
+Include `Wicked::Wizard` in your controller. Here we have a controller called Users::AfterSignupController with existing routes.
 
 ```ruby
+
+  class Users::AfterSignupController < ApplicationController
+    include Wicked::Wizard
+
+    steps :confirm_password, :confirm_profile, :find_friends
+    # ...
+
+```
+
+You can also use the old way of inheriting from `Wicked::WizardController`.
+
+```ruby
+
   class Users::AfterSignupController < Wicked::WizardController
 
     steps :confirm_password, :confirm_profile, :find_friends

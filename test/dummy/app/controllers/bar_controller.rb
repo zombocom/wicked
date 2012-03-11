@@ -1,6 +1,7 @@
-## This controller uses inheritance
+## This controller uses includes
 
-class FooController < Wicked::WizardController
+class BarController < ApplicationController
+  include Wicked::Wizard
   steps :first, :second, :last_step
 
   def show
