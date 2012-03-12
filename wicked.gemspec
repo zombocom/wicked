@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "wicked"
-  s.version = "0.0.2"
+  s.version = "0.1.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["schneems"]
-  s.date = "2012-02-23"
+  s.date = "2012-03-12"
   s.description = "Wicked is a Rails engine for producing easy wizard controllers"
   s.email = "richard.schneeman@gmail.com"
   s.extra_rdoc_files = [
@@ -17,6 +17,7 @@ Gem::Specification.new do |s|
   ]
   s.files = [
     ".rvmrc",
+    "CHANGELOG.md",
     "Gemfile",
     "Gemfile.lock",
     "MIT-LICENSE",
@@ -31,8 +32,12 @@ Gem::Specification.new do |s|
     "lib/wicked/engine.rb",
     "test/dummy/Rakefile",
     "test/dummy/app/controllers/application_controller.rb",
+    "test/dummy/app/controllers/bar_controller.rb",
     "test/dummy/app/controllers/foo_controller.rb",
     "test/dummy/app/helpers/application_helper.rb",
+    "test/dummy/app/views/bar/first.html.erb",
+    "test/dummy/app/views/bar/last_step.html.erb",
+    "test/dummy/app/views/bar/second.html.erb",
     "test/dummy/app/views/foo/first.html.erb",
     "test/dummy/app/views/foo/last_step.html.erb",
     "test/dummy/app/views/foo/second.html.erb",
@@ -65,6 +70,7 @@ Gem::Specification.new do |s|
     "test/dummy/public/javascripts/rails.js",
     "test/dummy/public/stylesheets/.gitkeep",
     "test/dummy/script/rails",
+    "test/integration/helpers_test.rb",
     "test/integration/navigation_test.rb",
     "test/support/integration_case.rb",
     "test/test_helper.rb",
@@ -88,6 +94,7 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<rcov>, [">= 0"])
       s.add_development_dependency(%q<capybara>, [">= 0.4.0"])
       s.add_development_dependency(%q<sqlite3>, [">= 0"])
+      s.add_development_dependency(%q<launchy>, [">= 0"])
     else
       s.add_dependency(%q<activesupport>, [">= 3.0.7"])
       s.add_dependency(%q<rails>, [">= 3.0.7"])
@@ -96,6 +103,7 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<rcov>, [">= 0"])
       s.add_dependency(%q<capybara>, [">= 0.4.0"])
       s.add_dependency(%q<sqlite3>, [">= 0"])
+      s.add_dependency(%q<launchy>, [">= 0"])
     end
   else
     s.add_dependency(%q<activesupport>, [">= 3.0.7"])
@@ -105,6 +113,7 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<rcov>, [">= 0"])
     s.add_dependency(%q<capybara>, [">= 0.4.0"])
     s.add_dependency(%q<sqlite3>, [">= 0"])
+    s.add_dependency(%q<launchy>, [">= 0"])
   end
 end
 
