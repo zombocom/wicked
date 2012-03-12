@@ -74,7 +74,7 @@ The wizard is set to call steps in order in the show action, you can specify cus
 
 You'll need to call `render_wizard` at the end of your action to get the correct views to show up.
 
-By default the wizard will render a view with the same name as the step. So for our controller `AfterSignupController` with a view path of `/views/users/after_signup/` if call the :confirm_password step, our wizard will render `/views/users/after_signup/confirm_password.html.erb`
+By default the wizard will render a view with the same name as the step. So for our controller `AfterSignupController` with a view path of `/views/after_signup/` if call the :confirm_password step, our wizard will render `/views/after_signup/confirm_password.html.erb`
 
 Then in your view you can use the helpers to get to the next step.
 
