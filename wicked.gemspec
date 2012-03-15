@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "wicked"
-  s.version = "0.1.0"
+  s.version = "0.1.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["schneems"]
-  s.date = "2012-03-12"
+  s.date = "2012-03-15"
   s.description = "Wicked is a Rails engine for producing easy wizard controllers"
   s.email = "richard.schneeman@gmail.com"
   s.extra_rdoc_files = [
@@ -30,6 +30,7 @@ Gem::Specification.new do |s|
     "lib/wicked/controller/concerns/render_redirect.rb",
     "lib/wicked/controller/concerns/steps.rb",
     "lib/wicked/engine.rb",
+    "lib/wicked/wizard.rb",
     "test/dummy/Rakefile",
     "test/dummy/app/controllers/application_controller.rb",
     "test/dummy/app/controllers/bar_controller.rb",
