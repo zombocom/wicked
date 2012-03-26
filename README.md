@@ -178,9 +178,11 @@ Controller Tidbits:
 Testing with RSpec
 
 ```ruby
+  # Test find_friends block of show action
+  get :show, :id => :find_friends   
 
-  get :show, :id => :find_friends                                         # Test find_friends block of show action
-  put :update, {'id' => 'find_friends', "user" => {"id"=>@user.id.to_s}}  # Test find_friends block of update action
+  # Test find_friends block of update action
+  put :update, {'id' => 'find_friends', "user" => {"id"=>@user.id.to_s}}  
 
 ```
 
