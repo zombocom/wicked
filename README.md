@@ -175,6 +175,15 @@ Controller Tidbits:
   render_wizard(@user)         # Shows next_step if @user.save, otherwise renders current step
 ```
 
+Testing with RSpec
+
+```ruby
+
+  get :show, :id => :find_friends                                         # Test find_friends block of show action
+  put :update, {'id' => 'find_friends', "user" => {"id"=>@user.id.to_s}}  # Test find_friends block of update action
+
+```
+
 Finally:
 
 Don't forget to create your named views
