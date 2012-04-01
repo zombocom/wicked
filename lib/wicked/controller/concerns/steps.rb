@@ -28,6 +28,8 @@ module Wicked::Controller::Concerns::Steps
   def steps
     self.class.steps
   end
+  alias :wizard_steps :steps
+  alias :steps_list   :steps
 
   def previous_step(current_step = nil)
     return @previous_step if current_step == nil

@@ -30,4 +30,10 @@ class HelpersTest < ActiveSupport::IntegrationCase
     assert has_content?("first")
   end
 
+  test 'wizard_steps' do
+    step = :last_step
+    visit(bar_path(step))
+    assert has_content?("step 3 of 3")
+  end
+
 end

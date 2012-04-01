@@ -1,3 +1,7 @@
+## 0.1.4 (4/01/2012)
+
+* expose `steps` and `wizard_steps` to view
+
 ## 0.1.3 (4/01/2012)
 
 * previous_wizard_path introduced
