@@ -32,8 +32,8 @@ module Wicked::Controller::Concerns::Steps
 
   def next_step(current_step)
     index = steps.index(current_step)
-    step = steps.at(index + 1) if index.present?
-    step ||= :finish
+    step  = steps.at(index + 1) if index.present?
+    step  ||= :finish
     step
   end
 
