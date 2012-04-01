@@ -53,7 +53,7 @@ You can also use the old way of inheriting from `Wicked::WizardController`.
 
 ```
 
-The wizard is set to call steps in order in the show action, you can specify custom logic in your show using a case statement like below. To send someone to the first step in this wizard we can direct them to `after_signup_path(:confirm_password)`. 
+The wizard is set to call steps in order in the show action, you can specify custom logic in your show using a case statement like below. To send someone to the first step in this wizard we can direct them to `after_signup_path(:confirm_password)`.
 
 ```ruby
   class AfterSignupController < ApplicationController
@@ -158,6 +158,7 @@ View/URL Helpers
   wizard_path                  # Grabs the current path in the wizard
   wizard_path(:specific_step)  # Url of the :specific_step
   next_wizard_path             # Url of the next step
+  previous_wizard_path         # Url of the previous step
 
   # These only work while in a Wizard, and are not absolute paths
   # You can have multiple wizards in a project with multiple `wizard_path` calls

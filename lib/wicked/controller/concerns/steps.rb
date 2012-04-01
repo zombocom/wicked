@@ -29,8 +29,17 @@ module Wicked::Controller::Concerns::Steps
     self.class.steps
   end
 
+  def previous_step(current_step = nil)
+    return @previous_step if current_step == nil
+    index = steps.index(current_step)
+    step  = steps.at(index - 1) if index.present? && index != 0
+    step ||= nil
+    step
+  end
 
-  def next_step(current_step)
+
+  def next_step(current_step = nil)
+    return @next_step if current_step == nil
     index = steps.index(current_step)
     step  = steps.at(index + 1) if index.present?
     step  ||= :finish

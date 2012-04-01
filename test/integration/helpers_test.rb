@@ -23,4 +23,11 @@ class HelpersTest < ActiveSupport::IntegrationCase
     assert has_content?('last_step')
   end
 
+  test 'previous_wizard_path' do
+    step = :second
+    visit(bar_path(step))
+    click_link 'previous'
+    assert has_content?("first")
+  end
+
 end

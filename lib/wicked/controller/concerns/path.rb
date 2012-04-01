@@ -6,6 +6,10 @@ module Wicked::Controller::Concerns::Path
     wizard_path(@next_step, options)
   end
 
+  def previous_wizard_path(options = {})
+    wizard_path(@previous_step, options)
+  end
+
   def controller
     params[:controller]
   end
