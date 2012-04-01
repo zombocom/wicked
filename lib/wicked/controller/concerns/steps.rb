@@ -33,9 +33,9 @@ module Wicked::Controller::Concerns::Steps
 
   def previous_step(current_step = nil)
     return @previous_step if current_step == nil
-    index = steps.index(current_step)
-    step  = steps.at(index - 1) if index.present? && index != 0
-    step ||= nil
+    index =  steps.index(current_step)
+    step  =  steps.at(index - 1) if index.present? && index != 0
+    step ||= steps.first
     step
   end
 
