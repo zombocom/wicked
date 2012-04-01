@@ -5,19 +5,19 @@ class InheritNavigationTest < ActiveSupport::IntegrationCase
   test 'show first' do
     step = :first
     visit(foo_path(step))
-    assert has_content?(step)
+    assert has_content?(step.to_s)
   end
 
   test 'show second' do
     step = :second
     visit(foo_path(step))
-    assert has_content?(step)
+    assert has_content?(step.to_s)
   end
 
   test 'skip first' do
     step = :first
-    visit(foo_path(step, :skip_step => 'true'))
-    assert has_content?(:second)
+    visit(foo_path(step.to_s, :skip_step => 'true'))
+    assert has_content?('second')
   end
 
   test 'invalid step' do
@@ -41,19 +41,19 @@ class IncludeNavigationTest < ActiveSupport::IntegrationCase
   test 'show first' do
     step = :first
     visit(bar_path(step))
-    assert has_content?(step)
+    assert has_content?(step.to_s)
   end
 
   test 'show second' do
     step = :second
     visit(bar_path(step))
-    assert has_content?(step)
+    assert has_content?(step.to_s)
   end
 
   test 'skip first' do
     step = :first
     visit(bar_path(step, :skip_step => 'true'))
-    assert has_content?(:second)
+    assert has_content?(:second.to_s)
   end
 
   test 'invalid step' do
