@@ -1,6 +1,8 @@
 ## 0.1.4 (4/01/2012)
 
 * expose `steps` and `wizard_steps` to view
+* default index path of wizard controller to the first step
+* paths to first and last steps `/wizard_first` & `/wizard_last`
 
 ## 0.1.3 (4/01/2012)
 

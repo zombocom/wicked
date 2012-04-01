@@ -20,6 +20,9 @@ module Wicked
 
     private
     def setup_wizard
+      redirect_to wizard_path(steps.first) if params[:id].try(:to_sym) == :wizard_first
+      redirect_to wizard_path(steps.last)  if params[:id].try(:to_sym) == :wizard_last
+
       @step          = params[:id].try(:to_sym) || steps.first
       @previous_step = previous_step(@step)
       @next_step     = next_step(@step)

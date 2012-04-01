@@ -7,7 +7,6 @@ class InheritNavigationTest < ActiveSupport::IntegrationCase
     assert has_content?('first')
   end
 
-
   test 'show first' do
     step = :first
     visit(foo_path(step))
@@ -60,6 +59,16 @@ class IncludeNavigationTest < ActiveSupport::IntegrationCase
     step = :first
     visit(bar_path(step, :skip_step => 'true'))
     assert has_content?(:second.to_s)
+  end
+
+  test 'pointer to first' do
+    visit(bar_path(:wizard_first))
+    assert has_content?('first')
+  end
+
+  test 'pointer to last' do
+    visit(bar_path(:wizard_last))
+    assert has_content?('last_step')
   end
 
   test 'invalid step' do
