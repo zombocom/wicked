@@ -14,6 +14,10 @@ module Wicked
       before_filter :setup_wizard
     end
 
+    def index
+      redirect_to wizard_path(steps.first)
+    end
+
     private
     def setup_wizard
       @step          = params[:id].try(:to_sym) || steps.first

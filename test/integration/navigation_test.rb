@@ -2,6 +2,12 @@ require 'test_helper'
 
 class InheritNavigationTest < ActiveSupport::IntegrationCase
 
+  test 'default index' do
+    visit(foo_index_path)
+    assert has_content?('first')
+  end
+
+
   test 'show first' do
     step = :first
     visit(foo_path(step))
