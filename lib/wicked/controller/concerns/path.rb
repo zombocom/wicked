@@ -10,7 +10,7 @@ module Wicked::Controller::Concerns::Path
     wizard_path(@previous_step, options)
   end
 
-  def controller
+  def my_controller
     params[:controller]
   end
 
@@ -21,7 +21,7 @@ module Wicked::Controller::Concerns::Path
 
   def wizard_path(goto_step = nil, options = {})
     options = {
-                 :controller => controller,
+                 :controller => my_controller,
                  :action     => 'show',
                  :id         => goto_step || params[:id],
                  :only_path  => true
