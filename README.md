@@ -16,6 +16,13 @@ Add this to your Gemfile
 
 Then run `bundle install` and you're ready to start
 
+## Quicklinks
+
+* Deal with validation in a Wizard using [Partial Validation of Active Record Objects](https://github.com/schneems/wicked/wiki/Partial-Validation-of-Active-Record-Objects)
+* [Show Current Wizard Progress to User](https://github.com/schneems/wicked/wiki/Show-Current-Wizard-Progress-to-User)
+* [Example App](https://github.com/schneems/wicked_example)
+* [Screencast](http://schneems.com/post/18437886598/wizard-ify-your-rails-controllers-with-wicked)
+
 ## How
 
 We are going to build an 'after signup' wizard. First create a controller:
