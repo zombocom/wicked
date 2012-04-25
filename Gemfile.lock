@@ -104,10 +104,10 @@ PLATFORMS
 
 DEPENDENCIES
   activesupport (>= 3.0.7)
-  bundler (~> 1.0.0)
   capybara (>= 0.4.0)
   jeweler (~> 1.6.4)
   launchy
   rails (>= 3.0.7)
+  rake
   rcov
   sqlite3

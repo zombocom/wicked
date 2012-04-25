@@ -5,9 +5,9 @@ gem "rails"         , ">= 3.0.7"
 
 
 
-group :development do
+group :development, :test do
+  gem 'rake'
   gem 'jeweler',  "~> 1.6.4"
-  gem "bundler",  "~> 1.0.0"
   gem "rcov",     ">= 0"
   gem "capybara", ">= 0.4.0"
   gem "sqlite3"
