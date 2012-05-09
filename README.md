@@ -111,7 +111,7 @@ In addition to showing sequential views we can update elements in our controller
       @user = current_user
       case step
       when :confirm_password
-        @user.update_attributes(params[:user])
+        @user.assign_attributes(params[:user])
       end
       sign_in(@user, :bypass => true) # needed for devise
       render_wizard @user
