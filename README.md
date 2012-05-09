@@ -24,6 +24,7 @@ Then run `bundle install` and you're ready to start
 * [Show Current Wizard Progress to User](https://github.com/schneems/wicked/wiki/Show-Current-Wizard-Progress-to-User)
 * [Example App](https://github.com/schneems/wicked_example)
 * [Screencast](http://schneems.com/post/18437886598/wizard-ify-your-rails-controllers-with-wicked)
+* [Watch Railscasts episode: #346 Wizard Forms with Wicked](http://railscasts.com/episodes/346-wizard-forms-with-wicked)
 
 ## How
 
