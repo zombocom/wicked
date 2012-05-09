@@ -181,6 +181,7 @@ Controller Tidbits:
   steps  :first, :second       # Sets the order of steps
   step                         # Gets symbol of current step
   next_step                    # Gets symbol of next step
+  skip_step                    # Tells render_wizard to skip to the next logical step
   render_wizard                # Renders the current step
   render_wizard(@user)         # Shows next_step if @user.save, otherwise renders current step
 ```
@@ -189,10 +190,10 @@ Testing with RSpec
 
 ```ruby
   # Test find_friends block of show action
-  get :show, :id => :find_friends   
+  get :show, :id => :find_friends
 
   # Test find_friends block of update action
-  put :update, {'id' => 'find_friends', "user" => {"id"=>@user.id.to_s}}  
+  put :update, {'id' => 'find_friends', "user" => {"id"=>@user.id.to_s}}
 
 ```
 
