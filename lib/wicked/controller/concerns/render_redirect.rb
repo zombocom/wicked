@@ -1,16 +1,7 @@
 module Wicked::Controller::Concerns::RenderRedirect
   extend ActiveSupport::Concern
 
-
-  # scary and gross, allows for double render
-  def _reset_invocation_response
-    self.instance_variable_set(:@_response_body, nil)
-    response.instance_variable_set :@header, Rack::Utils::HeaderHash.new("cookie" => [], 'Content-Type' => 'text/html')
-  end
-
-
   def render_wizard(resource = nil)
-    _reset_invocation_response
     @skip_to = @next_step if resource && resource.save
     if @skip_to.present?
       redirect_to wizard_path @skip_to
