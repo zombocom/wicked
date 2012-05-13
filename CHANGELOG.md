@@ -1,3 +1,7 @@
+## 0.1.6pre (05/13/2012)
+
+* remove `WizardController#_reset_invocation_response`
+
 ## 0.1.5 (05/13/2012)
 
 * rename `controller` to `wizard_controller` to avoid collisions with other controller based gems (thanks @lucatironi)

@@ -1,7 +1,6 @@
 module Wicked::Controller::Concerns::Steps
   extend ActiveSupport::Concern
 
-
   def jump_to(goto_step)
     @skip_to = goto_step
   end

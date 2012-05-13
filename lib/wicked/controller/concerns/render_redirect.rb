@@ -26,6 +26,7 @@ module Wicked::Controller::Concerns::RenderRedirect
     end
   end
 
+  # TODO redirect to resource if one is passed to render_wizard
   def finish_wizard_path
     '/'
   end
