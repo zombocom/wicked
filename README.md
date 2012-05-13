@@ -82,7 +82,7 @@ The wizard is set to call steps in order in the show action, you can specify cus
   end
 ```
 
-**Note:** Wicked uses the `:id` parameter to control the flow of steps, if you need to have an id parameter, please use nested routes see [Partial Validation of Active Record Objects](https://github.com/schneems/wicked/wiki/Partial-Validation-of-Active-Record-Objects) for an example. It will need to be prefixed, for example a Product's `:id`` would be `:product_id`
+**Note:** Wicked uses the `:id` parameter to control the flow of steps, if you need to have an id parameter, please use nested routes see [Partial Validation of Active Record Objects](https://github.com/schneems/wicked/wiki/Partial-Validation-of-Active-Record-Objects) for an example. It will need to be prefixed, for example a Product's `:id` would be `:product_id`
 
 You'll need to call `render_wizard` at the end of your action to get the correct views to show up.
 
