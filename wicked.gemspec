@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "wicked"
-  s.version = "0.1.6.pre"
+  s.version = "0.1.6"
 
-  s.required_rubygems_version = Gem::Requirement.new("> 1.3.1") if s.respond_to? :required_rubygems_version=
+  s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["schneems"]
-  s.date = "2012-05-13"
+  s.date = "2012-06-02"
   s.description = "Wicked is a Rails engine for producing easy wizard controllers"
   s.email = "richard.schneeman@gmail.com"
   s.extra_rdoc_files = [
@@ -36,13 +36,18 @@ Gem::Specification.new do |s|
     "test/dummy/app/controllers/application_controller.rb",
     "test/dummy/app/controllers/bar_controller.rb",
     "test/dummy/app/controllers/foo_controller.rb",
+    "test/dummy/app/controllers/jump_controller.rb",
     "test/dummy/app/helpers/application_helper.rb",
+    "test/dummy/app/models/bar.rb",
     "test/dummy/app/views/bar/first.html.erb",
     "test/dummy/app/views/bar/last_step.html.erb",
     "test/dummy/app/views/bar/second.html.erb",
     "test/dummy/app/views/foo/first.html.erb",
     "test/dummy/app/views/foo/last_step.html.erb",
     "test/dummy/app/views/foo/second.html.erb",
+    "test/dummy/app/views/jump/first.html.erb",
+    "test/dummy/app/views/jump/last_step.html.erb",
+    "test/dummy/app/views/jump/second.html.erb",
     "test/dummy/app/views/layouts/application.html.erb",
     "test/dummy/config.ru",
     "test/dummy/config/application.rb",
@@ -73,6 +78,7 @@ Gem::Specification.new do |s|
     "test/dummy/public/stylesheets/.gitkeep",
     "test/dummy/script/rails",
     "test/integration/helpers_test.rb",
+    "test/integration/jump_test.rb",
     "test/integration/navigation_test.rb",
     "test/support/integration_case.rb",
     "test/test_helper.rb",
