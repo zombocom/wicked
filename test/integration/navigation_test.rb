@@ -83,18 +83,6 @@ class IncludeNavigationTest < ActiveSupport::IntegrationCase
     visit(bar_path(step))
     assert has_content?('home')
   end
-
-  test 'consider jump_to when calling render_wizard with resource' do
-    step = :first
-    visit(bar_path(step, :with_resource => 'true', :jump_to => 'true'))
-    assert has_content?('last_step')
-  end
-
-  test 'disregard jump_to when saving the resource fails' do
-    step = :first
-    visit(bar_path(step, :with_resource => 'false', :jump_to => 'true'))
-    assert has_content?('first')
-    assert !has_content?('last_step')
-  end
-
 end
+
+

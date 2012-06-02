@@ -1,6 +1,6 @@
-class Baz
+class Bar
   def initialize(value)
-    @value = (value == 'true')
+    @value = value
   end
 
   def save

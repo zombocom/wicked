@@ -1,14 +1,24 @@
 module Wicked::Controller::Concerns::RenderRedirect
   extend ActiveSupport::Concern
 
+
   def render_wizard(resource = nil)
-    if resource
-      @skip_to = resource.save ? (@skip_to || @next_step) : nil
-    end
-    if @skip_to.present?
+    process_resource!(resource)
+
+    if @skip_to
       redirect_to wizard_path @skip_to
     else
       render_step @step
+    end
+  end
+
+  def process_resource!(resource)
+    if resource
+      if resource.save
+        @skip_to ||= @next_step
+      else
+        @skip_to = nil
+      end
     end
   end
 
