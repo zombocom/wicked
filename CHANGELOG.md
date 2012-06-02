@@ -1,6 +1,7 @@
-## 0.1.6pre (05/13/2012)
+## 0.1.6 (06/02/2012)
 
 * remove `WizardController#_reset_invocation_response`
+* bug fix for when jump_to is used in conjunction with passing a resource to render_wizard (thanks @fschwahn)
 
 ## 0.1.5 (05/13/2012)
 
