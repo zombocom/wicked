@@ -213,6 +213,18 @@ Don't forget to create your named views
       # ...
 ```
 
+
+Bonus:
+
+You can specify the url that your user goes to by over-riding the `finish_wizard_path` in your wizard controller.
+
+
+```
+  def finish_wizard_path
+    user_path(current_user)
+  end
+```
+
 ## About
 
 Please poke around the source code, if you see easier ways to get a Rails controller do do what I want, let me know.
