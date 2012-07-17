@@ -12,6 +12,14 @@ module Wicked::Controller::Concerns::Steps
   def step
     @step
   end
+  
+  def on_step?(step_name)
+    step == step_name
+  end
+  
+  def past_step?(step_name)
+    steps.index(step) > steps.index(step_name)
+  end
 
   module ClassMethods
     def steps=(steps)

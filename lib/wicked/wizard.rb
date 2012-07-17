@@ -9,7 +9,7 @@ module Wicked
 
     included do
       # Give our Views helper methods!
-      helper_method :wizard_path, :next_wizard_path, :previous_wizard_path, :step, :wizard_steps
+      helper_method :wizard_path, :next_wizard_path, :previous_wizard_path, :step, :wizard_steps, :on_step?, :past_step?
       # Set @step and @next_step variables
       before_filter :setup_wizard
     end
