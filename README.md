@@ -38,6 +38,11 @@ Add Routes into `config/routes.rb`:
 
 ```ruby
   resources :after_signup
+  
+  #  To make use of routes in the form /after_signup/action, use the match method:
+  match '/after_signup(/:id)' => 'after_signup#show', as: :get_funded, via: 'get'
+  match '/after_signup(/:id)' => 'after_signup#update', via: 'put'
+  
 ```
 
 Next include `Wicked::Wizard` in your controller
