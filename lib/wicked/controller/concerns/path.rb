@@ -3,11 +3,11 @@ module Wicked::Controller::Concerns::Path
 
 
   def next_wizard_path(options = {})
-    wizard_path(@next_step, options)
+    wizard_path(next_step, options)
   end
 
   def previous_wizard_path(options = {})
-    wizard_path(@previous_step, options)
+    wizard_path(previous_step, options)
   end
 
   def wicked_controller
