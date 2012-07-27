@@ -1,3 +1,9 @@
+## 0.2.0 (07/27/2012)
+
+* Make step configuration an instance level config instead of class.
+* [#25] current_step?, past_step?, future_step?, next_step? & previous_step? step helper methods to be used in the view(thanks @ahorner)
+# [#28] accept options to `render_wizard` (@nata79)
+
 ## 0.1.6 (06/02/2012)
 
 * remove `WizardController#_reset_invocation_response`

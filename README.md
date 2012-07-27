@@ -6,7 +6,7 @@ Use wicked to make your Rails controllers into step-by-step wizards. To see Wick
 
 ## Why
 
-Many times I'm left wanting a RESTful way to display a step by step process that may or not be associated with a resource. Wicked gives the flexibility to do what I want while hiding all the really scary stuff you shouldn't do in a controller to make this possible. At it's core Wicked is a RESTful(ish) state machine, but you don't need to know that, just use it.
+Many times I'm left wanting a RESTful way to display a step by step process that may or not be associated with a resource. Wicked gives the flexibility to do what I want while hiding all the really nasty stuff you shouldn't do in a controller to make this possible. At it's core Wicked is a RESTful(ish) state machine, but you don't need to know that, just use it.
 
 ## Install
 
@@ -20,7 +20,7 @@ Then run `bundle install` and you're ready to start
 
 ## Quicklinks
 
-* Deal with validation in a Wizard using [Partial Validation of Active Record Objects](https://github.com/schneems/wicked/wiki/Partial-Validation-of-Active-Record-Objects)
+* Build an object step-by-step using [Partial Validation of Active Record Objects](https://github.com/schneems/wicked/wiki/Partial-Validation-of-Active-Record-Objects)
 * [Show Current Wizard Progress to User](https://github.com/schneems/wicked/wiki/Show-Current-Wizard-Progress-to-User)
 * [Example App](https://github.com/schneems/wicked_example)
 * [Screencast](http://schneems.com/post/18437886598/wizard-ify-your-rails-controllers-with-wicked)
@@ -180,7 +180,6 @@ View/URL Helpers
 Controller Tidbits:
 
 ```ruby
-
   steps  :first, :second       # Sets the order of steps
   step                         # Gets symbol of current step
   next_step                    # Gets symbol of next step
@@ -189,16 +188,6 @@ Controller Tidbits:
   render_wizard(@user)         # Shows next_step if @user.save, otherwise renders current step
 ```
 
-Testing with RSpec
-
-```ruby
-  # Test find_friends block of show action
-  get :show, :id => :find_friends
-
-  # Test find_friends block of update action
-  put :update, {'id' => 'find_friends', "user" => {"id"=>@user.id.to_s}}
-
-```
 
 Finally:
 
@@ -214,7 +203,7 @@ Don't forget to create your named views
 ```
 
 
-Bonus:
+# Finish Wizard Path
 
 You can specify the url that your user goes to by over-riding the `finish_wizard_path` in your wizard controller.
 
@@ -224,6 +213,19 @@ You can specify the url that your user goes to by over-riding the `finish_wizard
     user_path(current_user)
   end
 ```
+
+
+Testing with RSpec
+
+```ruby
+  # Test find_friends block of show action
+  get :show, :id => :find_friends
+
+  # Test find_friends block of update action
+  put :update, {'id' => 'find_friends', "user" => { "id" => @user.id.to_s }}
+```
+
+
 
 ## About
 
