@@ -12,13 +12,35 @@ module Wicked::Controller::Concerns::Steps
   def step
     @step
   end
-  
-  def on_step?(step_name)
+
+  # will return true if step passed in is the currently rendered step
+  def current_step?(step_name)
+    return false if step_name.nil? || step.nil?
     step == step_name
   end
-  
+
+  # will return true if the step passed in has already been executed by the wizard
   def past_step?(step_name)
+    return false if steps.index(step).nil? || steps.index(step_name).nil?
     steps.index(step) > steps.index(step_name)
+  end
+
+  # will return true if the step passed in has already been executed by the wizard
+  def future_step?(step_name)
+    return false if steps.index(step).nil? || steps.index(step_name).nil?
+    steps.index(step) < steps.index(step_name)
+  end
+
+  # will return true if the last step is the step passed in
+  def previous_step?(step_name)
+    return false if steps.index(step).nil? || steps.index(step_name).nil?
+    steps.index(step) - 1  == steps.index(step_name)
+  end
+
+  # will return true if the next step is the step passed in
+  def next_step?(step_name)
+    return false if steps.index(step).nil? || steps.index(step_name).nil?
+    steps.index(step) + 1  == steps.index(step_name)
   end
 
   module ClassMethods

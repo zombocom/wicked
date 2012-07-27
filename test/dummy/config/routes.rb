@@ -2,6 +2,7 @@ Dummy::Application.routes.draw do
   resources :foo
   resources :bar
   resources :jump
+  resources :step_positions
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
