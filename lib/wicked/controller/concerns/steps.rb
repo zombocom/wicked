@@ -44,18 +44,21 @@ module Wicked::Controller::Concerns::Steps
   end
 
   module ClassMethods
-    def steps=(steps)
-      @wizard_steps = steps
-    end
-
-    def steps(*steps_to_set)
-      @wizard_steps = steps_to_set unless steps_to_set.blank?
-      @wizard_steps
+    def steps(*args)
+      options = args.last.is_a?(Hash) ? callbacks.pop : {}
+      steps   = args
+      prepend_before_filter(options) do
+        self.steps = steps
+      end
     end
   end
 
+  def steps=(wizard_steps)
+    @wizard_steps = wizard_steps
+  end
+
   def steps
-    self.class.steps
+    @wizard_steps
   end
   alias :wizard_steps :steps
   alias :steps_list   :steps
