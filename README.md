@@ -215,7 +215,7 @@ You can specify the url that your user goes to by over-riding the `finish_wizard
 ```
 
 
-Testing with RSpec
+### Testing with RSpec
 
 ```ruby
   # Test find_friends block of show action
