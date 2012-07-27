@@ -1,7 +1,20 @@
 require 'test_helper'
 
 class HelpersTest < ActiveSupport::IntegrationCase
-
+  
+  test 'on_step?' do
+    step = :first
+    visit(bar_path(step))
+    assert has_content?('On first')
+  end
+  
+  test 'past_step?' do
+    step = :first
+    visit(bar_path(step))
+    click_link 'skip'
+    assert has_content?('Past first')
+  end
+  
   test 'next_wizard_path' do
     step = :first
     visit(bar_path(step))
