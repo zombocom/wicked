@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "wicked"
-  s.version = "0.1.6"
+  s.version = "0.2.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["schneems"]
-  s.date = "2012-06-02"
+  s.date = "2012-07-27"
   s.description = "Wicked is a Rails engine for producing easy wizard controllers"
   s.email = "richard.schneeman@gmail.com"
   s.extra_rdoc_files = [
@@ -37,6 +37,7 @@ Gem::Specification.new do |s|
     "test/dummy/app/controllers/bar_controller.rb",
     "test/dummy/app/controllers/foo_controller.rb",
     "test/dummy/app/controllers/jump_controller.rb",
+    "test/dummy/app/controllers/steps_controller.rb",
     "test/dummy/app/helpers/application_helper.rb",
     "test/dummy/app/models/bar.rb",
     "test/dummy/app/views/bar/first.html.erb",
@@ -49,6 +50,10 @@ Gem::Specification.new do |s|
     "test/dummy/app/views/jump/last_step.html.erb",
     "test/dummy/app/views/jump/second.html.erb",
     "test/dummy/app/views/layouts/application.html.erb",
+    "test/dummy/app/views/step_positions/_step_position.html.erb",
+    "test/dummy/app/views/step_positions/first.html.erb",
+    "test/dummy/app/views/step_positions/last_step.html.erb",
+    "test/dummy/app/views/step_positions/second.html.erb",
     "test/dummy/config.ru",
     "test/dummy/config/application.rb",
     "test/dummy/config/boot.rb",
@@ -80,6 +85,7 @@ Gem::Specification.new do |s|
     "test/integration/helpers_test.rb",
     "test/integration/jump_test.rb",
     "test/integration/navigation_test.rb",
+    "test/integration/steps_test.rb",
     "test/support/integration_case.rb",
     "test/test_helper.rb",
     "test/wicked_test.rb",
