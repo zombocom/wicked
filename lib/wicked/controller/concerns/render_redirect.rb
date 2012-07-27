@@ -2,13 +2,13 @@ module Wicked::Controller::Concerns::RenderRedirect
   extend ActiveSupport::Concern
 
 
-  def render_wizard(resource = nil)
+  def render_wizard(resource = nil, options = {})
     process_resource!(resource)
 
     if @skip_to
-      redirect_to wizard_path @skip_to
+      redirect_to wizard_path(@skip_to), options
     else
-      render_step @step
+      render_step @step, options
     end
   end
 
@@ -22,11 +22,11 @@ module Wicked::Controller::Concerns::RenderRedirect
     end
   end
 
-  def render_step(the_step)
+  def render_step(the_step, options = {})
     if the_step.nil? || the_step == :finish
-      redirect_to_finish_wizard
+      redirect_to_finish_wizard options
     else
-      render the_step
+      render the_step, options
     end
   end
 
@@ -43,8 +43,8 @@ module Wicked::Controller::Concerns::RenderRedirect
     '/'
   end
 
-  def redirect_to_finish_wizard
-    redirect_to finish_wizard_path
+  def redirect_to_finish_wizard(options = nil)
+    redirect_to finish_wizard_path, options
   end
 
 end
