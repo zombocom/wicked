@@ -11,17 +11,12 @@ module Wicked
       # Give our Views helper methods!
       helper_method :wizard_path, :next_wizard_path, :previous_wizard_path, :step, :wizard_steps
       # Set @step and @next_step variables
-      before_filter :setup_wizard, :add_step_to_stack
+      before_filter :setup_wizard, :store_current_step
     end
 
-    def add_step_to_stack
+    def store_current_step
       unless params[:id].nil?
-        step = params[:id].to_sym
-        if session[:step_stack].include? step
-          session[:step_stack].slice!(session[:step_stack].index(step)..-1)
-        end
-
-        session[:step_stack] << step
+        jump_to_step(params[:id].to_sym)
       end
     end
 
@@ -40,6 +35,16 @@ module Wicked
 
       session[:step_stack] ||= []
     end
+
+    def jump_to_step(current_step)
+      stack = session[:step_stack]
+      if stack.include? current_step
+        session[:step_stack].slice!(stack.index(current_step)..-1)
+      end
+
+      session[:step_stack] << current_step
+    end
+
     public
   end
 end
