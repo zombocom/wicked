@@ -64,6 +64,10 @@ module Wicked::Controller::Concerns::Steps
   alias :steps_list   :steps
 
   def previous_step(current_step = nil)
+    if session[:step_stack] && session[:step_stack].size > 1
+      return session[:step_stack][-2]
+    end
+
     return @previous_step if current_step == nil
     index =  steps.index(current_step)
     step  =  steps.at(index - 1) if index.present? && index != 0
@@ -79,6 +83,5 @@ module Wicked::Controller::Concerns::Steps
     step  ||= :finish
     step
   end
-
 
 end
