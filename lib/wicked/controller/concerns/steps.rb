@@ -45,7 +45,7 @@ module Wicked::Controller::Concerns::Steps
 
   module ClassMethods
     def steps(*args)
-      options = args.last.is_a?(Hash) ? callbacks.pop : {}
+      options = args.extract_options!
       steps   = args
       prepend_before_filter(options) do
         self.steps = steps
