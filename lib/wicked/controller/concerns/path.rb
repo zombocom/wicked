@@ -21,8 +21,8 @@ module Wicked::Controller::Concerns::Path
 
   def wizard_path(goto_step = nil, options = {})
     options = { :controller => wicked_controller,
-                :action     => 'show',
-                :id         => goto_step || params[:id],
+                :action     => wicked_step_action,
+                wicked_step_parameter.to_sym  => goto_step || params[wicked_step_parameter],
                 :only_path  => true
                }.merge options
     url_for(options)

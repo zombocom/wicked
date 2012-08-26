@@ -85,6 +85,30 @@ The wizard is set to call steps in order in the show action, you can specify cus
 
 **Note:** Wicked uses the `:id` parameter to control the flow of steps, if you need to have an id parameter, please use nested routes see [building objects with wicked](https://github.com/schneems/wicked/wiki/Partial-Validation-of-Active-Record-Objects) for an example. It will need to be prefixed, for example a Product's `:id` would be `:product_id`
 
+### Routing helpers
+
+The routing helper which was loaned from Wizardry(https://raw.github.com/lexmag/wizardry) allows for nicer routes
+
+```ruby
+resource :after_signup do
+  is_wicked
+end
+# same as
+wicked_resource :after_signup
+# or
+wicked_resources :products
+```
+
+will replace default *:id/edit* path with *:id/edit/:step* and update with *:id/:step*.
+`is_wicked` and wicked_resource also accepts a hash to further configure the behavior
+
+* `:step_constraint => /first/second/` Set to true to generate a regexp which allows only the steps which are assigned in the controller or pass a regexp.
+* `:step_optional => true` The route will be `*:id/edit(/:step)*` but be carefull not to shadow other routes.
+* `:step_parameter => :pets` Defaults to :step can but can be changed set to :id for backwards compatibility with the old routes.
+* `:show_step_action => :show` the action used to display the steps, defaults to :edit but can be set back to :show.
+wicked_resource(s) or the parent resource from is_wicked can take:
+* `:path_names => { :edit => 'amend' }` Changes the route to `*:id/amend/:step*` can be set to nil for `*:id/:step*`.
+
 You'll need to call `render_wizard` at the end of your action to get the correct views to show up.
 
 By default the wizard will render a view with the same name as the step. So for our controller `AfterSignupController` with a view path of `/views/after_signup/` if call the :confirm_password step, our wizard will render `/views/after_signup/confirm_password.html.erb`
