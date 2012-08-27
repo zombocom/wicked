@@ -21,7 +21,7 @@ Then run `bundle install` and you're ready to start
 ## Quicklinks
 
 * [Build an object step-by-step](https://github.com/schneems/wicked/wiki/Building-Partial-Objects-Step-by-Step)
-* [Use object ID's with wizard paths](https://github.com/schneems/wicked/wiki/Partial-Validation-of-Active-Record-Objects)
+* [Use object ID's with wizard paths](https://github.com/schneems/wicked/wiki/Building-Partial-Objects-Step-by-Step)
 * [Show Current Wizard Progress to User](https://github.com/schneems/wicked/wiki/Show-Current-Wizard-Progress-to-User)
 * [Example App](https://github.com/schneems/wicked_example)
 * [Screencast](http://schneems.com/post/18437886598/wizard-ify-your-rails-controllers-with-wicked)
