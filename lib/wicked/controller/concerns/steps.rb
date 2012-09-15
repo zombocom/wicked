@@ -47,6 +47,8 @@ module Wicked::Controller::Concerns::Steps
     def steps(*args)
       options = args.extract_options!
       steps   = args
+      class_attribute :wicked_steps, instance_writer: false
+      self.wicked_steps = steps
       prepend_before_filter(options) do
         self.steps = steps
       end

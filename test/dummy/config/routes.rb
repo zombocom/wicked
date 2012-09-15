@@ -1,8 +1,16 @@
 Dummy::Application.routes.draw do
   resources :foo
+  wicked_resource :foo2, controller: :foo2
   resources :bar
+  wicked_resource :bar2, controller: :bar2
   resources :jump
+  wicked_resource :jump2, controller: :jump2
   resources :step_positions
+  wicked_resource :step_positions2, controller: :step_positions2
+  resources :products, except: :destroy, path_names: { new: :make } do
+    get :commit, on: :collection
+    is_wicked step_constraint: true
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

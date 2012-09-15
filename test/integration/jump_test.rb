@@ -14,3 +14,18 @@ class JumpNavigationTest < ActiveSupport::IntegrationCase
     assert !has_content?('last_step')
   end
 end
+
+class JumpNavigationEditTest < ActiveSupport::IntegrationCase
+  test 'consider jump_to when calling render_wizard with resource' do
+    step = :first
+    visit(edit_jump2_path(nil, step: step, :resource => {:save => true}, :jump_to => :last_step))
+    assert has_content?('last_step')
+  end
+
+  test 'disregard jump_to when saving the resource fails' do
+    step = :first
+    visit(edit_jump2_path(nil, step: step, :resource => {:save => false}, :jump_to => :last_step))
+    assert has_content?('first')
+    assert !has_content?('last_step')
+  end
+end

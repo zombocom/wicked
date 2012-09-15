@@ -1,3 +1,4 @@
+
 module Wicked
   module Controller
     module Concerns
@@ -12,3 +13,4 @@ require 'wicked/controller/concerns/steps'
 require 'wicked/controller/concerns/path'
 require 'wicked/wizard'
 require 'wicked/engine'
+require 'wicked/routes'
