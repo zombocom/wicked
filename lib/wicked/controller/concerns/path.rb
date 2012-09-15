@@ -21,10 +21,15 @@ module Wicked::Controller::Concerns::Path
 
   def wizard_path(goto_step = nil, options = {})
     options = { :controller => wicked_controller,
-                :action     => wicked_step_action,
-                wicked_step_parameter.to_sym  => goto_step || params[wicked_step_parameter],
+                :action     => @step_action,
+                @step_parameter.to_sym  => goto_step || params[@step_parameter],
                 :only_path  => true
                }.merge options
     url_for(options)
   end
+
+  def update_wizard_path(goto_step = nil, options = {})
+    wizard_path(goto_step, { :action => :update }.merge(options))
+  end
+
 end

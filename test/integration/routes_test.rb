@@ -81,7 +81,7 @@ class RouteHelperTest < ActionController::TestCase
       set.draw{ wicked_resource :products, only: [:edit, :update] }
 
       assert_recognizes({ controller: 'products', action: 'edit', step: 'first'}, '/products/edit/first')
-      assert_recognizes({ controller: 'products', action: 'update', step: 'initial'}, { path: '/products/initial', method: :put })
+      assert_recognizes({ controller: 'products', action: 'update', step: 'initial'}, { path: '/products/edit/initial', method: :put })
       assert_equal 2, set.routes.count
     end
   end
@@ -97,6 +97,9 @@ class RouteHelperTest < ActionController::TestCase
         assert_recognizes({ controller: 'products', action: 'edit'}, '/products/edit')
       end
       assert_raises ActionController::RoutingError do
+        assert_recognizes({ controller: 'products', action: 'update', step: 'first'}, { path: '/products/edit/first', method: :put })
+      end
+      assert_raises ActionController::RoutingError do
         assert_recognizes({ controller: 'products', action: 'update', step: 'first'}, { path: '/products/first', method: :put })
       end
       assert_raises ActionController::RoutingError do
@@ -110,7 +113,7 @@ class RouteHelperTest < ActionController::TestCase
     with_routing do |set|
       set.draw{ wicked_resource :products, except: [:edit, :update], only: :update }
 
-      assert_recognizes({ controller: 'products', action: 'update', step: 'first'}, { path: '/products/first', method: :put })
+      assert_recognizes({ controller: 'products', action: 'update', step: 'first'}, { path: '/products/edit/first', method: :put })
       assert_equal 1, set.routes.count
     end
   end

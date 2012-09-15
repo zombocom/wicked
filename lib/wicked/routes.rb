@@ -28,18 +28,20 @@ class ActionDispatch::Routing::Mapper
     controller = @scope[:controller].to_s.singularize.concat('_controller').classify.constantize unless controller.present?
 
     step_parameter = opts.delete(:step_parameter).try(:to_s) || 'step'
-    controller.class_attribute :wicked_step_parameter, instance_writer: false unless defined? controller.wicked_step_parameter 
-    controller.wicked_step_parameter = step_parameter
     step_action = opts.delete(:show_step_action).try(:to_s) || 'edit'
-    controller.class_attribute :wicked_step_action, instance_writer: false unless defined? controller.wicked_step_action
-    controller.wicked_step_action = step_action
+    routes_config = {}
+    routes_config = Wicked::Wizard.class_variable_get :@@routes_config if Wicked::Wizard.class_variable_defined? :@@routes_config
+    routes_config.merge!({ controller.name => { :step_parameter => step_parameter, :step_action => step_action }})
+    Wicked::Wizard.class_variable_set :@@routes_config, routes_config
 
     path_name = 'edit'
     path_name = @scope[:path_names][:edit] if @scope[:path_names].key? :edit
+    update_path_name = path_name
+    update_path_name = @scope[:path_names][:update] if @scope[:path_names].key? :update
     step = opts.delete(:step_optional) ? "(/:#{step_parameter})" : "/:#{step_parameter}"
     step = step.sub(/\//, '') unless path_name
     edit_params = {"#{path_name}#{step}" => step_action.to_sym, as: step_action.to_sym, on: :member}
-    update_params = {"#{step}" => :update, as: :update, on: :member}
+    update_params = {"#{update_path_name}#{step}" => :update, as: :update, on: :member}
 
     step_constraint = opts.delete(:step_constraint)
     step_constraint = Regexp.new controller.wicked_steps.join('|') if step_constraint == true
@@ -57,7 +59,7 @@ class ActionDispatch::Routing::Mapper
     class_eval <<-EOT, __FILE__, __LINE__ + 1
       def wicked_#{method}(*res)              # def wicked_resources(*res)
         wicked_options = res.extract_options! #   wicked_options = res.extract_options!
-        options = wicked_options.slice! :step_constraint, :step_optional, :step_parameter, :show_step_action #   options = wicked_options.slice :step_constraint, :step_optional, :step_parameter, :show_step_action
+        options = wicked_options.slice! :step_constraint, :step_optional, :step_parameter, :show_step_action #   options = wicked_options.slice! :step_constraint, :step_optional, :step_parameter, :show_step_action
         res.push options if options.present?  #   res.push options if options.present?
         #{method} *res do                     #   resources *res do
           is_wicked wicked_options            #     is_wicked wicked_options

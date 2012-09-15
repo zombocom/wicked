@@ -99,7 +99,7 @@ wicked_resource :after_signup
 wicked_resources :products
 ```
 
-will replace default *:id/edit* path with *:id/edit/:step* and update with *:id/:step*.
+will replace default `*:id/edit*` path with `*:id/edit/:step*` and update with `*:id/:step*`.
 `is_wicked` and wicked_resource also accepts a hash to further configure the behavior
 
 * `:step_constraint => /first/second/` Set to true to generate a regexp which allows only the steps which are assigned in the controller or pass a regexp.
@@ -107,7 +107,7 @@ will replace default *:id/edit* path with *:id/edit/:step* and update with *:id/
 * `:step_parameter => :pets` Defaults to :step can but can be changed set to :id for backwards compatibility with the old routes.
 * `:show_step_action => :show` the action used to display the steps, defaults to :edit but can be set back to :show.
 wicked_resource(s) or the parent resource from is_wicked can take:
-* `:path_names => { :edit => 'amend' }` Changes the route to `*:id/amend/:step*` can be set to nil for `*:id/:step*`.
+* `:path_names => { :edit => 'amend' }` Changes the route to `*:id/amend/:step*` can be set to nil for `*:id/:step*`. `:update` will be set to the same as `:edit` if not specified. Use update_wizard_path in the form url if update path is not the same as edit path.
 
 You'll need to call `render_wizard` at the end of your action to get the correct views to show up.
 
