@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "wicked"
-  s.version = "0.2.0"
+  s.version = "0.3.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["schneems"]
-  s.date = "2012-07-27"
+  s.date = "2012-10-30"
   s.description = "Wicked is a Rails engine for producing easy wizard controllers"
   s.email = "richard.schneeman@gmail.com"
   s.extra_rdoc_files = [
@@ -32,10 +32,12 @@ Gem::Specification.new do |s|
     "lib/wicked/controller/concerns/steps.rb",
     "lib/wicked/engine.rb",
     "lib/wicked/wizard.rb",
+    "lib/wicked/wizard/translated.rb",
     "test/dummy/Rakefile",
     "test/dummy/app/controllers/application_controller.rb",
     "test/dummy/app/controllers/bar_controller.rb",
     "test/dummy/app/controllers/foo_controller.rb",
+    "test/dummy/app/controllers/i18n_controller.rb",
     "test/dummy/app/controllers/jump_controller.rb",
     "test/dummy/app/controllers/steps_controller.rb",
     "test/dummy/app/helpers/application_helper.rb",
@@ -46,6 +48,8 @@ Gem::Specification.new do |s|
     "test/dummy/app/views/foo/first.html.erb",
     "test/dummy/app/views/foo/last_step.html.erb",
     "test/dummy/app/views/foo/second.html.erb",
+    "test/dummy/app/views/i18n/first.html.erb",
+    "test/dummy/app/views/i18n/second.html.erb",
     "test/dummy/app/views/jump/first.html.erb",
     "test/dummy/app/views/jump/last_step.html.erb",
     "test/dummy/app/views/jump/second.html.erb",
@@ -68,6 +72,7 @@ Gem::Specification.new do |s|
     "test/dummy/config/initializers/secret_token.rb",
     "test/dummy/config/initializers/session_store.rb",
     "test/dummy/config/locales/en.yml",
+    "test/dummy/config/locales/es.yml",
     "test/dummy/config/routes.rb",
     "test/dummy/public/404.html",
     "test/dummy/public/422.html",
@@ -83,6 +88,7 @@ Gem::Specification.new do |s|
     "test/dummy/public/stylesheets/.gitkeep",
     "test/dummy/script/rails",
     "test/integration/helpers_test.rb",
+    "test/integration/i18n_test.rb",
     "test/integration/jump_test.rb",
     "test/integration/navigation_test.rb",
     "test/integration/steps_test.rb",
@@ -94,7 +100,7 @@ Gem::Specification.new do |s|
   s.homepage = "http://github.com/schneems/wicked"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
-  s.rubygems_version = "1.8.10"
+  s.rubygems_version = "1.8.24"
   s.summary = "Use Wicked to turn your controller into a wizard"
 
   if s.respond_to? :specification_version then
@@ -107,8 +113,9 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<jeweler>, ["~> 1.6.4"])
       s.add_development_dependency(%q<rcov>, [">= 0"])
       s.add_development_dependency(%q<capybara>, [">= 0.4.0"])
-      s.add_development_dependency(%q<sqlite3>, [">= 0"])
       s.add_development_dependency(%q<launchy>, [">= 0"])
+      s.add_development_dependency(%q<sqlite3>, [">= 0"])
+      s.add_development_dependency(%q<activerecord-jdbcsqlite3-adapter>, [">= 0"])
     else
       s.add_dependency(%q<activesupport>, [">= 3.0.7"])
       s.add_dependency(%q<rails>, [">= 3.0.7"])
@@ -116,8 +123,9 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<jeweler>, ["~> 1.6.4"])
       s.add_dependency(%q<rcov>, [">= 0"])
       s.add_dependency(%q<capybara>, [">= 0.4.0"])
-      s.add_dependency(%q<sqlite3>, [">= 0"])
       s.add_dependency(%q<launchy>, [">= 0"])
+      s.add_dependency(%q<sqlite3>, [">= 0"])
+      s.add_dependency(%q<activerecord-jdbcsqlite3-adapter>, [">= 0"])
     end
   else
     s.add_dependency(%q<activesupport>, [">= 3.0.7"])
@@ -126,8 +134,9 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<jeweler>, ["~> 1.6.4"])
     s.add_dependency(%q<rcov>, [">= 0"])
     s.add_dependency(%q<capybara>, [">= 0.4.0"])
-    s.add_dependency(%q<sqlite3>, [">= 0"])
     s.add_dependency(%q<launchy>, [">= 0"])
+    s.add_dependency(%q<sqlite3>, [">= 0"])
+    s.add_dependency(%q<activerecord-jdbcsqlite3-adapter>, [">= 0"])
   end
 end
 
