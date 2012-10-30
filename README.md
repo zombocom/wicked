@@ -227,6 +227,70 @@ You can specify the url that your user goes to by over-riding the `finish_wizard
 ```
 
 
+### Internationalization of URLS (I18n)
+
+If your site works in multiple languages, or if you just want more control over how your URL's look you can now use I18n with wicked. To do so you need to replace this:
+
+    include Wicked::Wizard
+
+With this:
+
+    include Wicked::Wizard::Translated
+
+This will allow you to specify translation keys instead of literal step names. Let's say you've got steps that look like this:
+
+    steps :first, :second
+
+So the urls would be `/after_signup/first` and `/after_signup/second`. But you want them to show up differntly for different locales. For example someone coming form a Spanish speaking locale should see `/after_signup/uno` and `after_signup/dos`.
+
+To internationalize first you need to create your locales files under `config/locales` such as `config/locales/es.yml` for Spanish. You then need to add a `first` and `second` key under a `wicked` key like this:
+
+    es:
+      hello: "hola mundo"
+      wicked:
+        first: "uno"
+        second: "dos"
+
+It would also be a good idea to create a english version under `config/locales/en.yml` or your english speaking friends will get errors. If your app already uses I18n you don't need to do anything else, if not you will need to make sure that you set the `I18n.locale` on each request you could do this somewhere like a before filter in your application_controller.rb
+
+
+    before_filter :set_locale
+
+    private
+
+    def set_locale
+      I18n.locale = params[:locale] if params[:locale].present?
+    end
+
+    def default_url_options(options = {})
+      {locale: I18n.locale}
+    end
+
+For a screencast on setting up and using I18n check out [Railscasts](http://railscasts.com/episodes/138-i18n-revised). You can also read the [free I18n Rails Guide](http://guides.rubyonrails.org/i18n.html).
+
+Now when you visit your controller with the proper locale set your url's should be more readable like `/after_signup/uno` and `after_signup/dos`.
+
+Wicked expects your files to be named the same as your keys, so when a user visits `after_signup/dos` with the `es` locale it will render the `second.html.erb` file.
+
+## Custom URL's
+
+Very similar to using I18n from above but instead of making new files for different languages, you can stick with one language. Make sure you are using the right module:
+
+    include Wicked::Wizard::Translated
+
+Then you'll need to specify translations in your language file. For me, the language I'm using is english so I can add translations to `config/locales/en.yml`
+
+    en:
+      hello: "hello world"
+      wicked:
+        first: "verify_email"
+        second: "if_you_are_popular_add_friends"
+
+Now you can change the values in the URL's to whatever you want without changing your controller or your files, just modify your `en.yml`. If you're not using English you can set your default_locale to something other than `en` in your `config/application.rb` file.
+
+    config.i18n.default_locale = :de
+
+Custom crafted wizard urls: just another way Wicked makes your app a little more saintly.
 
 ## About
 

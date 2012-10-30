@@ -3,3 +3,6 @@
 
 en:
   hello: "Hello world"
+  wicked:
+    first: "first"
+    second: "second"

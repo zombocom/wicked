@@ -1,4 +1,5 @@
 Dummy::Application.routes.draw do
+  resources :i18n
   resources :foo
   resources :bar
   resources :jump

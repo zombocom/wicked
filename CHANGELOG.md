@@ -1,3 +1,9 @@
+## 0.3.0
+
+* [#22] enable I18n on wicked paths with `Wicked::Wizard::Translated`
+* jRuby is officially supported and tested with Travis
+* [#30] bugfix, filter options now work on `steps` method (@jeremyruppel)
+
 ## 0.2.0 (07/27/2012)
 
 * Make step configuration an instance level config instead of class.
