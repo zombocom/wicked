@@ -10,8 +10,10 @@ group :development, :test do
   gem 'jeweler',  "~> 1.6.4"
   gem "rcov",     ">= 0"
   gem "capybara", ">= 0.4.0"
-  gem "sqlite3"
   gem "launchy"
+
+  gem "sqlite3",                          :platform => [:ruby, :mswin, :mingw]
+  gem "activerecord-jdbcsqlite3-adapter", :platform => :jruby
 end
 
 

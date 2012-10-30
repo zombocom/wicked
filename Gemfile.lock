@@ -103,6 +103,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activerecord-jdbcsqlite3-adapter
   activesupport (>= 3.0.7)
   capybara (>= 0.4.0)
   jeweler (~> 1.6.4)
