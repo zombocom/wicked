@@ -22,11 +22,20 @@ module Wicked
     end
 
     private
-    def setup_wizard
-      redirect_to wizard_path(steps.first) if params[:id].try(:to_sym) == :wizard_first
-      redirect_to wizard_path(steps.last)  if params[:id].try(:to_sym) == :wizard_last
 
-      @step          = params[:id].try(:to_sym) || steps.first
+    def check_redirect_to_first_last!(step)
+      redirect_to wizard_path(steps.first) if step == :wizard_first
+      redirect_to wizard_path(steps.last)  if step == :wizard_last
+    end
+
+    def setup_step_from(the_step)
+      the_step = the_step.try(:to_sym) || steps.first
+      check_redirect_to_first_last!(the_step)
+      return the_step
+    end
+
+    def setup_wizard
+      @step          = setup_step_from(params[:id])
       @previous_step = previous_step(@step)
       @next_step     = next_step(@step)
     end

@@ -6,8 +6,7 @@ module Wicked
       included do
         include Wicked::Wizard
         skip_before_filter :setup_wizard
-
-        before_filter :setup_wizard_translated
+        before_filter      :setup_wizard_translated
       end
 
       # creates a hash where keys are translated steps, values are the name of the view file
@@ -41,18 +40,12 @@ module Wicked
       #
       #     steps "wicked.first", "wicked.second"
       #
-
       def setup_wizard_translated
-        self.steps     = wizard_translations.keys
-
-        redirect_to wizard_path(steps.first) if params[:id].try(:to_sym) == :wizard_first
-        redirect_to wizard_path(steps.last)  if params[:id].try(:to_sym) == :wizard_last
-        original_step = params[:id] = params[:id].to_sym
-
-
-        @previous_step = previous_step(original_step)
-        @next_step     = next_step(original_step)
-        @step          = wizard_translations[params[:id]]
+        step_name      = setup_step_from(params[:id])
+        self.steps     = wizard_translations.keys        # must come before setting previous/next steps
+        @previous_step = previous_step(step_name)
+        @next_step     = next_step(step_name)
+        @step          = wizard_translations[step_name]  # translates step name to url
       end
       public
     end
