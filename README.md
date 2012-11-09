@@ -243,7 +243,7 @@ This will allow you to specify translation keys instead of literal step names. L
 
     steps :first, :second
 
-So the urls would be `/after_signup/first` and `/after_signup/second`. But you want them to show up differntly for different locales. For example someone coming form a Spanish speaking locale should see `/after_signup/uno` and `after_signup/dos`.
+So the urls would be `/after_signup/first` and `/after_signup/second`. But you want them to show up differently for different locales. For example someone coming form a Spanish speaking locale should see `/after_signup/uno` and `after_signup/dos`.
 
 To internationalize first you need to create your locales files under `config/locales` such as `config/locales/es.yml` for Spanish. You then need to add a `first` and `second` key under a `wicked` key like this:
 
