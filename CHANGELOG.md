@@ -1,3 +1,6 @@
+## 0.3.1
+* Prettier code, thanks code climate
+
 ## 0.3.0
 
 * [#22] enable I18n on wicked paths with `Wicked::Wizard::Translated`
