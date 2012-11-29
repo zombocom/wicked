@@ -1,3 +1,6 @@
+## 0.3.2
+* Forward params passed to the index action
+
 ## 0.3.1
 * Prettier code, thanks code climate
 

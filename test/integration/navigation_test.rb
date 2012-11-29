@@ -1,6 +1,15 @@
 require 'test_helper'
 
 class IncludeNavigationTest < ActiveSupport::IntegrationCase
+  test 'index forwards to first step by default' do
+    visit(bar_index_path)
+    assert has_content?("first")
+  end
+
+  test 'index forwards params to first step' do
+    visit(bar_index_path(:foo =>  "first"))
+    assert has_content?("params[:foo] first")
+  end
 
   test 'show first' do
     step = :first

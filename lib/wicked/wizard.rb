@@ -17,11 +17,16 @@ module Wicked
       before_filter :setup_wizard
     end
 
+    # forward to first step with whatever params are provided
     def index
-      redirect_to wizard_path(steps.first)
+      redirect_to wizard_path(steps.first, clean_params)
     end
 
     private
+
+    def clean_params
+      params.except(:action, :controller)
+    end
 
     def check_redirect_to_first_last!(step)
       redirect_to wizard_path(steps.first) if step == :wizard_first
