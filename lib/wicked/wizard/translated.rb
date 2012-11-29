@@ -17,7 +17,7 @@ module Wicked
         @wizard_translations ||= steps.inject({}) do |hash, step|
           step        = step.to_s.split(".").last
           translation = I18n.t("wicked.#{step}").to_sym
-          hash[translation] = step
+          hash[translation] = step.to_sym
           hash
         end
       end
