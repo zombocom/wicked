@@ -1,5 +1,6 @@
 ## 0.3.2
 * Forward params passed to the index action
+* bug fix: 1.8.7 hash ordering
 
 ## 0.3.1
 * Prettier code, thanks code climate
