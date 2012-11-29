@@ -6,11 +6,6 @@ class I18nTest < ActiveSupport::IntegrationCase
     step = :uno
     visit(i18n_path(step, :locale => :es))
     assert has_content?('uno')
-
-    ## Needed to keep travis build working on 1.8.7 idk why
-    i18n_path(:dos)
-    page.html
-
     assert has_link?('hello', :href => i18n_path(:dos))
   end
 
@@ -18,11 +13,6 @@ class I18nTest < ActiveSupport::IntegrationCase
     step = :first
     visit(i18n_path(step, :locale => :en))
     assert has_content?('first')
-
-    ## Needed to keep travis build working on 1.8.7 idk why
-    i18n_path(:second)
-    page.html
-
     assert has_link?('hello', :href => i18n_path(:second))
   end
 end

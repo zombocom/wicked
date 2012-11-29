@@ -14,7 +14,7 @@ module Wicked
       # {:uno=>"first", :dos=>"second"}
       #
       def wizard_translations
-        @wizard_translations ||= steps.inject({}) do |hash, step|
+        @wizard_translations ||= steps.inject(ActiveSupport::OrderedHash.new) do |hash, step|
           step        = step.to_s.split(".").last
           translation = I18n.t("wicked.#{step}").to_sym
           hash[translation] = step.to_sym
