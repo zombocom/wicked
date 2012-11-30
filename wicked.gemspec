@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "wicked"
-  s.version = "0.3.1"
+  s.version = "0.3.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["schneems"]
-  s.date = "2012-11-12"
+  s.date = "2012-11-30"
   s.description = "Wicked is a Rails engine for producing easy wizard controllers"
   s.email = "richard.schneeman@gmail.com"
   s.extra_rdoc_files = [
@@ -36,24 +36,22 @@ Gem::Specification.new do |s|
     "test/dummy/Rakefile",
     "test/dummy/app/controllers/application_controller.rb",
     "test/dummy/app/controllers/bar_controller.rb",
-    "test/dummy/app/controllers/foo_controller.rb",
     "test/dummy/app/controllers/i18n_controller.rb",
     "test/dummy/app/controllers/jump_controller.rb",
+    "test/dummy/app/controllers/pages_controller.rb",
     "test/dummy/app/controllers/steps_controller.rb",
     "test/dummy/app/helpers/application_helper.rb",
     "test/dummy/app/models/bar.rb",
     "test/dummy/app/views/bar/first.html.erb",
     "test/dummy/app/views/bar/last_step.html.erb",
     "test/dummy/app/views/bar/second.html.erb",
-    "test/dummy/app/views/foo/first.html.erb",
-    "test/dummy/app/views/foo/last_step.html.erb",
-    "test/dummy/app/views/foo/second.html.erb",
     "test/dummy/app/views/i18n/first.html.erb",
     "test/dummy/app/views/i18n/second.html.erb",
     "test/dummy/app/views/jump/first.html.erb",
     "test/dummy/app/views/jump/last_step.html.erb",
     "test/dummy/app/views/jump/second.html.erb",
     "test/dummy/app/views/layouts/application.html.erb",
+    "test/dummy/app/views/pages/index.html.erb",
     "test/dummy/app/views/step_positions/_step_position.html.erb",
     "test/dummy/app/views/step_positions/first.html.erb",
     "test/dummy/app/views/step_positions/last_step.html.erb",
@@ -78,7 +76,6 @@ Gem::Specification.new do |s|
     "test/dummy/public/422.html",
     "test/dummy/public/500.html",
     "test/dummy/public/favicon.ico",
-    "test/dummy/public/index.html",
     "test/dummy/public/javascripts/application.js",
     "test/dummy/public/javascripts/controls.js",
     "test/dummy/public/javascripts/dragdrop.js",
@@ -100,7 +97,7 @@ Gem::Specification.new do |s|
   s.homepage = "http://github.com/schneems/wicked"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
-  s.rubygems_version = "1.8.10"
+  s.rubygems_version = "1.8.24"
   s.summary = "Use Wicked to turn your controller into a wizard"
 
   if s.respond_to? :specification_version then
