@@ -4,6 +4,10 @@ Dummy::Application.routes.draw do
   resources :jump
   resources :step_positions
 
+  resources :nested do
+    resources :builder, :controller => 'nested/builder'
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
