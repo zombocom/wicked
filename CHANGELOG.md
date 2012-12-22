@@ -1,3 +1,6 @@
+## 0.3.3
+* warn users users who forgot to set steps
+
 ## 0.3.2
 * Forward params passed to the index action
 * bug fix: 1.8.7 hash ordering
