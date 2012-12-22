@@ -74,6 +74,7 @@ module Wicked::Controller::Concerns::Steps
 
   def next_step(current_step = nil)
     return @next_step if current_step == nil
+    raise "Wicked Wizard steps not set, but expected" if steps.blank?
     index = steps.index(current_step)
     step  = steps.at(index + 1) if index.present?
     step  ||= :finish
