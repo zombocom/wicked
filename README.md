@@ -292,6 +292,27 @@ Now you can change the values in the URL's to whatever you want without changing
 
 Custom crafted wizard urls: just another way Wicked makes your app a little more saintly.
 
+## Dynamic Step Names
+
+If you wish to set the order of your steps dynamically you can do this with a `prepend_before_filter` and `self.steps =` like this:
+
+```
+  include Wicked::Wizard
+  prepend_before_filter :set_steps
+
+  # ...
+
+  private
+  def set_steps
+    if params[:flow] == "twitter"
+      self.steps = [:ask_twitter, :ask_email]
+    elsif params[:flow] == "facebook"
+      self.steps = [:ask_facebook, :ask_email]
+    end
+  end
+```
+
+
 ## About
 
 Please poke around the source code, if you see easier ways to get a Rails controller do do what I want, let me know.

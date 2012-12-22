@@ -1,3 +1,6 @@
+## 0.3.4
+* Dynamic steps officially supported and tested
+
 ## 0.3.3
 * warn users users who forgot to set steps
 

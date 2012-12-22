@@ -34,13 +34,19 @@ module Wicked
     end
 
     def setup_step_from(the_step)
-      the_step = the_step.try(:to_sym) || steps.first
+      the_step = the_step.try(:to_sym) || steps.try(:first)
       check_redirect_to_first_last!(the_step)
       return the_step
     end
 
+    def check_steps!(the_step)
+      return false if step.nil?
+      raise "Wicked Wizard steps expected but not yet set, if setting via `before_filter` use `prepend_before_filter`" if steps.nil?
+    end
+
     def setup_wizard
       @step          = setup_step_from(params[:id])
+      check_steps!(@step)
       @previous_step = previous_step(@step)
       @next_step     = next_step(@step)
     end
