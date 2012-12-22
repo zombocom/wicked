@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "wicked"
-  s.version = "0.3.2"
+  s.version = "0.3.3"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["schneems"]
-  s.date = "2012-11-30"
+  s.date = "2012-12-22"
   s.description = "Wicked is a Rails engine for producing easy wizard controllers"
   s.email = "richard.schneeman@gmail.com"
   s.extra_rdoc_files = [
@@ -38,6 +38,7 @@ Gem::Specification.new do |s|
     "test/dummy/app/controllers/bar_controller.rb",
     "test/dummy/app/controllers/i18n_controller.rb",
     "test/dummy/app/controllers/jump_controller.rb",
+    "test/dummy/app/controllers/nested/builder_controller.rb",
     "test/dummy/app/controllers/pages_controller.rb",
     "test/dummy/app/controllers/steps_controller.rb",
     "test/dummy/app/helpers/application_helper.rb",
@@ -51,6 +52,9 @@ Gem::Specification.new do |s|
     "test/dummy/app/views/jump/last_step.html.erb",
     "test/dummy/app/views/jump/second.html.erb",
     "test/dummy/app/views/layouts/application.html.erb",
+    "test/dummy/app/views/nested/builder/first.html.erb",
+    "test/dummy/app/views/nested/builder/last_step.html.erb",
+    "test/dummy/app/views/nested/builder/second.html.erb",
     "test/dummy/app/views/pages/index.html.erb",
     "test/dummy/app/views/step_positions/_step_position.html.erb",
     "test/dummy/app/views/step_positions/first.html.erb",
@@ -88,6 +92,7 @@ Gem::Specification.new do |s|
     "test/integration/i18n_test.rb",
     "test/integration/jump_test.rb",
     "test/integration/navigation_test.rb",
+    "test/integration/nested_builder_test.rb",
     "test/integration/steps_test.rb",
     "test/support/integration_case.rb",
     "test/test_helper.rb",
@@ -97,7 +102,7 @@ Gem::Specification.new do |s|
   s.homepage = "http://github.com/schneems/wicked"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
-  s.rubygems_version = "1.8.24"
+  s.rubygems_version = "1.8.10"
   s.summary = "Use Wicked to turn your controller into a wizard"
 
   if s.respond_to? :specification_version then
