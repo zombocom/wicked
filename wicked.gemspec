@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = "wicked"
-  s.version = "0.3.3"
+  s.version = "0.3.4"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["schneems"]
@@ -36,6 +36,7 @@ Gem::Specification.new do |s|
     "test/dummy/Rakefile",
     "test/dummy/app/controllers/application_controller.rb",
     "test/dummy/app/controllers/bar_controller.rb",
+    "test/dummy/app/controllers/dynamic_steps_controller.rb",
     "test/dummy/app/controllers/i18n_controller.rb",
     "test/dummy/app/controllers/jump_controller.rb",
     "test/dummy/app/controllers/nested/builder_controller.rb",
@@ -46,6 +47,7 @@ Gem::Specification.new do |s|
     "test/dummy/app/views/bar/first.html.erb",
     "test/dummy/app/views/bar/last_step.html.erb",
     "test/dummy/app/views/bar/second.html.erb",
+    "test/dummy/app/views/dynamic_steps/first.html.erb",
     "test/dummy/app/views/i18n/first.html.erb",
     "test/dummy/app/views/i18n/second.html.erb",
     "test/dummy/app/views/jump/first.html.erb",
@@ -88,6 +90,7 @@ Gem::Specification.new do |s|
     "test/dummy/public/javascripts/rails.js",
     "test/dummy/public/stylesheets/.gitkeep",
     "test/dummy/script/rails",
+    "test/integration/dynamic_steps_test.rb",
     "test/integration/helpers_test.rb",
     "test/integration/i18n_test.rb",
     "test/integration/jump_test.rb",
