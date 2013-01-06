@@ -1,4 +1,6 @@
-# Wicked
+![](http://cl.ly/image/3O2i1P061o3y/content.png)
+
+# Step-By-Step Wizard Controllers
 
 [![Build Status](https://secure.travis-ci.org/schneems/wicked.png)](http://travis-ci.org/schneems/wicked) [![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/schneems/wicked)
 
@@ -29,7 +31,9 @@ Then run `bundle install` and you're ready to start
 
 ## How
 
-We are going to build an 'after signup' wizard. First create a controller:
+We are going to build an 'after signup' wizard. If you don't have a `current_user` then check out how to [Build a step-by-step object with Wicked](https://github.com/schneems/wicked/wiki/Building-Partial-Objects-Step-by-Step).
+
+First create a controller:
 
 ```
   rails g controller after_signup
