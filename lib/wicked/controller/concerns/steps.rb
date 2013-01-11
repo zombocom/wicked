@@ -54,7 +54,7 @@ module Wicked::Controller::Concerns::Steps
   end
 
   def steps=(wizard_steps)
-    @wizard_steps = wizard_steps
+    @wizard_steps = wizard_steps.map(&:to_s)
   end
 
   def steps
@@ -65,7 +65,7 @@ module Wicked::Controller::Concerns::Steps
 
   def previous_step(current_step = nil)
     return @previous_step if current_step.nil?
-    index =  steps.index(current_step)
+    index =  steps.index(current_step.to_s)
     step  =  steps.at(index - 1) if index.present? && index != 0
     step ||= steps.first
     step
@@ -74,16 +74,16 @@ module Wicked::Controller::Concerns::Steps
 
   def next_step(current_step = nil)
     return @next_step if current_step.nil?
-    index = steps.index(current_step)
+    index = steps.index(current_step.to_s)
     step  = steps.at(index + 1) if index.present?
-    step  ||= :finish
+    step  ||= 'finish'
     step
   end
 
   private
 
   def step_index_for(step_name)
-    steps.index(step_name)
+    steps.index(step_name.to_s)
   end
 
   def current_step_index
@@ -91,7 +91,7 @@ module Wicked::Controller::Concerns::Steps
   end
 
   def current_and_given_step_exists?(step_name)
-    return false if current_step_index.nil? || steps.index(step_name).nil?
+    return false if current_step_index.nil? || steps.index(step_name.to_s).nil?
     return true
   end
 
