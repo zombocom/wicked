@@ -25,7 +25,7 @@ module Wicked::Controller::Concerns::Steps
     current_step_index > step_index_for(step_name)
   end
 
-  # will return true if the step passed in has already been executed by the wizard
+  # will return true if the step passed in has not been executed by the wizard
   def future_step?(step_name)
     return false unless current_and_given_step_exists?(step_name)
     current_step_index < step_index_for(step_name)
