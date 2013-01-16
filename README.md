@@ -316,6 +316,7 @@ If you wish to set the order of your steps dynamically you can do this with a `p
   end
 ```
 
+Note: Do not pass user submitted params directly into `self.steps` while using the custom or translated urls. The translator calls `to_sym` on steps provided, and if a user is allowed to submit arbitrary symbols, they could flood the take down your production app by filling up the symbol table. So just don't do it.
 
 ## About
 

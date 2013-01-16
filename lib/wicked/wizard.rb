@@ -29,14 +29,15 @@ module Wicked
     end
 
     def check_redirect_to_first_last!(step)
-      redirect_to wizard_path(steps.first) if step == :wizard_first
-      redirect_to wizard_path(steps.last)  if step == :wizard_last
+      redirect_to wizard_path(steps.first) if step.to_s == 'wizard_first'
+      redirect_to wizard_path(steps.last)  if step.to_s == 'wizard_last'
     end
 
     def setup_step_from(the_step)
-      the_step = the_step.try(:to_sym) || steps.try(:first)
+      the_step = the_step || steps.try(:first)
       check_redirect_to_first_last!(the_step)
-      return the_step
+      step = steps.detect {|stp| stp.to_s == the_step } if steps.present? && the_step.present?
+      return step || the_step
     end
 
     def check_steps!(the_step)
@@ -53,3 +54,4 @@ module Wicked
     public
   end
 end
+

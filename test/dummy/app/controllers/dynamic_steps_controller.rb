@@ -10,7 +10,7 @@ class DynamicStepsController < ApplicationController
   private
   def set_steps
     self.steps = if params[:steps]
-      params[:steps].map(&:to_sym)
+      params[:steps]
     end
   end
 end

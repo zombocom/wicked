@@ -10,8 +10,8 @@ module Wicked
       end
 
       # creates a hash where keys are translated steps, values are the name of the view file
-      # {:first=>"first", :second=>"second"}
-      # {:uno=>"first", :dos=>"second"}
+      # {:first => "first", :second => "second"}
+      # {:uno   => "first",   :dos  => "second"}
       #
       def wizard_translations
         @wizard_translations ||= steps.inject(ActiveSupport::OrderedHash.new) do |hash, step|
@@ -41,9 +41,9 @@ module Wicked
       #     steps "wicked.first", "wicked.second"
       #
       def setup_wizard_translated
+        self.steps     = wizard_translations.keys     # must come before setting previous/next steps
         step_name      = setup_step_from(params[:id])
         check_steps!(step_name)
-        self.steps     = wizard_translations.keys        # must come before setting previous/next steps
         @previous_step = previous_step(step_name)
         @next_step     = next_step(step_name)
         @step          = wizard_translations[step_name]  # translates step name to url

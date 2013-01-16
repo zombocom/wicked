@@ -1,3 +1,7 @@
+## 0.4.0
+* User imputs no longer converted to symbol this mitigates risk of DoS
+via symbol table or RAM (symbols are not garbage collected).
+
 ## 0.3.4
 * Dynamic steps officially supported and tested
 
