@@ -1,9 +1,10 @@
 <% wizard_steps.each do |s| %>
   <p>
-    <%= "#{s} step is the current step"    if current_step?(s)  %><br />
-    <%= "#{s} step is a past step"         if past_step?(s) %><br />
-    <%= "#{s} step is a future step"       if future_step?(s)   %><br />
-    <%= "#{s} step was the previous step"  if previous_step?(s)     %><br />
-    <%= "#{s} step is the next step"       if next_step?(s)     %><br />
+    <strong><u><%= s.inspect %></u></strong><br />
+    <%= current_step?(s)  ? "#{s} step is the current step"   : "nope" %><br />
+    <%= past_step?(s)     ? "#{s} step is a past step"        : "nope" %><br />
+    <%= future_step?(s)   ? "#{s} step is a future step"      : "nope" %><br />
+    <%= previous_step?(s) ? "#{s} step was the previous step" : "nope" %><br />
+    <%= next_step?(s)     ? "#{s} step is the next step"      : "nope" %><br />
   </p>
 <% end %>
