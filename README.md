@@ -278,6 +278,49 @@ Now when you visit your controller with the proper locale set your url's should 
 
 Wicked expects your files to be named the same as your keys, so when a user visits `after_signup/dos` with the `es` locale it will render the `second.html.erb` file.
 
+
+**Important:** When you do this the value of `step` as well as
+`next_step` and `previous_step` and all the values within `steps` will
+be translated to what locale you are using. To translate them to the
+"canonical" values that you've have in your controller you'll need so
+use `wizard_value` method.
+
+For example, if you had this in your controller, and you converted it to
+a use Wicked translations, so this will not work:
+
+```
+  steps :confirm_password, :confirm_profile, :find_friends
+
+  def show
+    case step
+    when :find_friends
+      @friends = current_user.find_friends
+    end
+    render_wizard
+  end
+```
+
+Instead you need to use `wizard_value` to get the "reverse translation" in your controller code like this:
+
+
+```
+  steps :confirm_password, :confirm_profile, :find_friends
+
+  def show
+    case wizard_value(step)
+    when :find_friends
+      @friends = current_user.find_friends
+    end
+    render_wizard
+  end
+```
+
+The important thing to remember is that `step` and the values in `steps` are
+always going to be in the same language if you're using the Wicked translations.
+If you need any values to match the values set directly in your controller,
+ or the names of your files (i.e. `views/../confirm_password.html.erb`, then you need
+to use `wizard_value` method.
+
 ## Custom URL's
 
 Very similar to using I18n from above but instead of making new files for different languages, you can stick with one language. Make sure you are using the right module:
@@ -301,6 +344,10 @@ Now you can change the values in the URL's to whatever you want without changing
 ```ruby
 config.i18n.default_locale = :de
 ```
+**Important:** Don't forget to use `wizard_value()` method to make
+sure you are using the right cannonical values of `step`,
+`previous_step`, `next_step`, etc. If you are comparing them to non
+wicked generate values.
 
 Custom crafted wizard urls: just another way Wicked makes your app a little more saintly.
 
@@ -324,7 +371,7 @@ def set_steps
 end
 ```
 
-Note: Do not pass user submitted params directly into `self.steps` while using the custom or translated urls. The translator calls `to_sym` on steps provided, and if a user is allowed to submit arbitrary symbols, they could flood the take down your production app by filling up the symbol table. So just don't do it.
+Note: Do not pass user submitted params directly into `self.steps` while using the custom or translated urls. The translator calls `to_sym` on steps provided, and if a user is allowed to submit arbitrary symbols, they could flood the take down your production app by filling up the symbol table. So, just don't do it.
 
 ## About
 

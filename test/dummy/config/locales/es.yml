@@ -6,3 +6,5 @@ es:
   wicked:
     first: "uno"
     second: "dos"
+    last_step: "último_paso"
+

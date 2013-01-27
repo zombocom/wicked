@@ -6,3 +6,4 @@ en:
   wicked:
     first: "first"
     second: "second"
+    last_step: "last_step"
