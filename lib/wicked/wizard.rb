@@ -22,6 +22,11 @@ module Wicked
       redirect_to wizard_path(steps.first, clean_params)
     end
 
+    # returns the canonical value for a step name, needed for translation support
+    def wizard_value(step_name)
+      step_name
+    end
+
     private
 
     def clean_params
@@ -45,11 +50,15 @@ module Wicked
       raise "Wicked Wizard steps expected but not yet set, if setting via `before_filter` use `prepend_before_filter`" if steps.nil?
     end
 
-    def setup_wizard
-      @step          = setup_step_from(params[:id])
-      check_steps!(@step)
+    def set_previous_next(step)
       @previous_step = previous_step(@step)
       @next_step     = next_step(@step)
+    end
+
+    def setup_wizard
+      @step = setup_step_from(params[:id])
+      check_steps!(@step)
+      set_previous_next(@step)
     end
     public
   end
