@@ -1,5 +1,14 @@
+## 0.5.0 (01/27/2013)
+* [#51] bug fix: while using translations all wizard helpers now return values
+in the same language (in whatever locale is being used). So if a user is
+requesting a controller action in spanish, then `step` will be in
+spanish and all the values inside of `steps` and `next_step` etc. will
+be in spanish. To convert one of these values to a "canonical" wizard
+value (that matches the names of your files) you can use
+`wizard_value(step)` method.
+
 ## 0.4.0
-* User imputs no longer converted to symbol this mitigates risk of DoS
+* User inputs no longer converted to symbol this mitigates risk of DoS
 via symbol table or RAM (symbols are not garbage collected).
 
 ## 0.3.4
