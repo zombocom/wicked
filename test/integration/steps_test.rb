@@ -23,6 +23,14 @@ class StepPositionsTest < ActiveSupport::IntegrationCase
     assert has_content?('last_step step is the next step')  # next_step?
   end
 
+  test 'string-based steps' do
+    visit(string_step_path('second'))
+    assert has_content?('second step is the current step')  # current_step?
+    assert has_content?('first step is a past step')        # past_step?
+    assert has_content?('last_step step is a future step')  # future_step?
+    assert has_content?('first step was the previous step') # previous_step?
+    assert has_content?('last_step step is the next step')  # next_step?
+  end
 end
 
   # current_step?
