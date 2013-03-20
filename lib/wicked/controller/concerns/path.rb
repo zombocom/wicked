@@ -28,3 +28,4 @@ module Wicked::Controller::Concerns::Path
     url_for(options)
   end
 end
+

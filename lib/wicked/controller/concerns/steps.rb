@@ -94,6 +94,5 @@ module Wicked::Controller::Concerns::Steps
     return false if current_step_index.nil? || steps.index(step_name).nil?
     return true
   end
-
-
 end
+

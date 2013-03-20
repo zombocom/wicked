@@ -13,3 +13,4 @@ require 'wicked/controller/concerns/path'
 require 'wicked/wizard'
 require 'wicked/wizard/translated'
 require 'wicked/engine'
+
