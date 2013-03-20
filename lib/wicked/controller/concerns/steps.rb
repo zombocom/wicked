@@ -1,5 +1,5 @@
 module Wicked::Controller::Concerns::Steps
-  PROTECTED_STEPS = ['finish']
+  PROTECTED_STEPS = [Wicked::FINISH_STEP, Wicked::FIRST_STEP, Wicked::LAST_STEP]
 
   extend ActiveSupport::Concern
 
@@ -87,7 +87,7 @@ module Wicked::Controller::Concerns::Steps
     return @next_step if current_step.nil?
     index = steps.index(current_step)
     step  = steps.at(index + 1) if index.present?
-    step  ||= :finish
+    step  ||= Wicked::FINISH_STEP
     step
   end
 

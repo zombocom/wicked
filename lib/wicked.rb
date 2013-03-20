@@ -1,4 +1,8 @@
 module Wicked
+  FINISH_STEP = "wicked_finish"
+  FIRST_STEP  = "wicked_first"
+  LAST_STEP   = "wicked_last"
+
   module Controller
     module Concerns
     end

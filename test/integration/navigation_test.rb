@@ -30,12 +30,12 @@ class IncludeNavigationTest < ActiveSupport::IntegrationCase
   end
 
   test 'pointer to first' do
-    visit(bar_path(:wizard_first))
+    visit(bar_path(Wicked::FIRST_STEP))
     assert has_content?('first')
   end
 
   test 'pointer to last' do
-    visit(bar_path(:wizard_last))
+    visit(bar_path(Wicked::LAST_STEP))
     assert has_content?('last_step')
   end
 
@@ -47,13 +47,13 @@ class IncludeNavigationTest < ActiveSupport::IntegrationCase
   end
 
   test 'finish' do
-    step = :finish
+    step = Wicked::FINISH_STEP
     visit(bar_path(step))
     assert has_content?('home')
   end
 
   test 'finish with flash' do
-    step = :finish
+    step = Wicked::FINISH_STEP
     visit bar_path(step, :notice => 'yo')
     assert has_content?('home')
     assert has_content?('notice:yo')

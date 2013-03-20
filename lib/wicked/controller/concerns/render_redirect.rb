@@ -23,7 +23,7 @@ module Wicked::Controller::Concerns::RenderRedirect
   end
 
   def render_step(the_step, options = {})
-    if the_step.nil? || the_step.to_s == 'finish'
+    if the_step.nil? || the_step.to_s == Wicked::FINISH_STEP
       redirect_to_finish_wizard options
     else
       render the_step, options

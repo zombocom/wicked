@@ -10,9 +10,9 @@ class WickedTest < ActiveSupport::TestCase
       class ProtectedBadStepsController < ApplicationController
         include Wicked::Wizard
 
-        steps :whatever, :finish
+        steps :whatever, Wicked::FINISH_STEP
       end
     end
-    assert_equal "Protected step detected: 'finish' is used internally by Wicked please rename your step", error.message
+    assert_equal "Protected step detected: '#{Wicked::FINISH_STEP}' is used internally by Wicked please rename your step", error.message
   end
 end

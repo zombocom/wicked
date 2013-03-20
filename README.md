@@ -373,6 +373,26 @@ end
 
 Note: Do not pass user submitted params directly into `self.steps` while using the custom or translated urls. The translator calls `to_sym` on steps provided, and if a user is allowed to submit arbitrary symbols, they could flood the take down your production app by filling up the symbol table. So, just don't do it.
 
+## Keywords
+
+There are a few "magical" keywords that will take you to the first step,
+the last step, or the "final" action (the redirect that happens after
+the last step). Prior to version 0.6.0 these were hardcoded strings. Now
+they are constants which means you can access them or change them. They
+are:
+
+```ruby
+Wicked::FIRST_STEP
+Wicked::LAST_STEP
+Wicked::FINISH_STEP
+```
+
+You can build links using these constants
+`after_signup_path(Wicked::LAST_STEP)` which will redirect the user to
+the first step you've specified. This might be useful for redirecting a
+user to a step when you're not already in a Wicked controller. If you
+change the step names, they are expected to be strings (not symbols).
+
 ## About
 
 Please poke around the source code, if you see easier ways to get a Rails controller do do what I want, let me know.

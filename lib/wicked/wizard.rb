@@ -34,8 +34,8 @@ module Wicked
     end
 
     def check_redirect_to_first_last!(step)
-      redirect_to wizard_path(steps.first) if step.to_s == 'wizard_first'
-      redirect_to wizard_path(steps.last)  if step.to_s == 'wizard_last'
+      redirect_to wizard_path(steps.first) if step.to_s == Wicked::FIRST_STEP
+      redirect_to wizard_path(steps.last)  if step.to_s == Wicked::LAST_STEP
     end
 
     def setup_step_from(the_step)

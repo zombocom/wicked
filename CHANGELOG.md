@@ -1,3 +1,13 @@
+## 0.6.0 (03/20/2013)
+
+* Breaking change: hardcoded internal `finish` keyword changed to
+`wicked_finish`. Can be modified by setting `Wicked::FINISH_STEP`.
+Please use constants from now on instead of relying on the values of the
+strings.
+* [#56] raise error while using reserved keyword
+* Keywords are now configurable as constants `Wicked::FIRST_STEP`,
+`Wicked::LAST_STEP`, and `Wicked::FINISH_STEP`
+
 ## 0.5.0 (01/27/2013)
 * [#51] bug fix: while using translations all wizard helpers now return values
 in the same language (in whatever locale is being used). So if a user is
