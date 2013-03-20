@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "wicked"
-  s.version = "0.5.0"
+  s.version = "0.6.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["schneems"]
-  s.date = "2013-01-27"
+  s.date = "2013-03-20"
   s.description = "Wicked is a Rails engine for producing easy wizard controllers"
   s.email = "richard.schneeman@gmail.com"
   s.extra_rdoc_files = [
@@ -42,6 +42,7 @@ Gem::Specification.new do |s|
     "test/dummy/app/controllers/nested/builder_controller.rb",
     "test/dummy/app/controllers/pages_controller.rb",
     "test/dummy/app/controllers/steps_controller.rb",
+    "test/dummy/app/controllers/string_steps_controller.rb",
     "test/dummy/app/helpers/application_helper.rb",
     "test/dummy/app/models/bar.rb",
     "test/dummy/app/views/bar/first.html.erb",
@@ -63,6 +64,7 @@ Gem::Specification.new do |s|
     "test/dummy/app/views/step_positions/first.html.erb",
     "test/dummy/app/views/step_positions/last_step.html.erb",
     "test/dummy/app/views/step_positions/second.html.erb",
+    "test/dummy/app/views/string_steps/second.html.erb",
     "test/dummy/config.ru",
     "test/dummy/config/application.rb",
     "test/dummy/config/boot.rb",
