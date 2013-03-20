@@ -1,4 +1,6 @@
 module Wicked::Controller::Concerns::Steps
+  PROTECTED_STEPS = ['finish']
+
   extend ActiveSupport::Concern
 
   def jump_to(goto_step)
@@ -47,8 +49,17 @@ module Wicked::Controller::Concerns::Steps
     def steps(*args)
       options = args.extract_options!
       steps   = args
+      check_protected!(steps)
       prepend_before_filter(options) do
         self.steps = steps
+      end
+    end
+
+    def check_protected!(wizard_steps)
+      string_steps = wizard_steps.map(&:to_s)
+      if protected_step = PROTECTED_STEPS.detect { |protected| string_steps.include?(protected) }
+        msg = "Protected step detected: '#{protected_step}' is used internally by Wicked please rename your step"
+        raise WickedProtectedStepError, msg
       end
     end
   end
