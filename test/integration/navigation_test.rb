@@ -51,6 +51,13 @@ class IncludeNavigationTest < ActiveSupport::IntegrationCase
     visit(bar_path(step))
     assert has_content?('home')
   end
+
+  test 'finish with flash' do
+    step = :finish
+    visit bar_path(step, :notice => 'yo')
+    assert has_content?('home')
+    assert has_content?('notice:yo')
+  end
 end
 
 

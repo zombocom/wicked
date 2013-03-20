@@ -6,6 +6,7 @@ class BarController < ApplicationController
 
   def show
     skip_step if params[:skip_step]
+    flash[:notice] = params[:notice] if params[:notice]
     render_wizard
   end
 

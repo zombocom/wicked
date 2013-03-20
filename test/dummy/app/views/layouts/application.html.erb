@@ -8,6 +8,8 @@
 </head>
 <body>
 
+<%= flash.map {|level, msg| "#{level}:#{msg}"}.join("<br />").html_safe %>
+
 <%= yield %>
 
 </body>
