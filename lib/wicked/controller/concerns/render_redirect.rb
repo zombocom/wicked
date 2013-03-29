@@ -43,7 +43,7 @@ module Wicked::Controller::Concerns::RenderRedirect
     '/'
   end
 
-  def redirect_to_finish_wizard(options = nil)
+  def redirect_to_finish_wizard(options = {})
     redirect_to finish_wizard_path, options
   end
 end
