@@ -30,11 +30,11 @@ module Wicked::Controller::Concerns::RenderRedirect
     end
   end
 
-  def redirect_to_next(next_step)
+  def redirect_to_next(next_step, options = {})
     if next_step.nil?
-      redirect_to_finish_wizard
+      redirect_to_finish_wizard(options)
     else
-      redirect_to wizard_path(next_step)
+      redirect_to wizard_path(next_step), options
     end
   end
 
