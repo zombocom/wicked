@@ -288,31 +288,31 @@ use `wizard_value` method.
 For example, if you had this in your controller, and you converted it to
 a use Wicked translations, so this will not work:
 
-```
-  steps :confirm_password, :confirm_profile, :find_friends
+```ruby
+steps :confirm_password, :confirm_profile, :find_friends
 
-  def show
-    case step
-    when :find_friends
-      @friends = current_user.find_friends
-    end
-    render_wizard
+def show
+  case step
+  when :find_friends
+    @friends = current_user.find_friends
   end
+  render_wizard
+end
 ```
 
 Instead you need to use `wizard_value` to get the "reverse translation" in your controller code like this:
 
 
-```
-  steps :confirm_password, :confirm_profile, :find_friends
+```ruby
+steps :confirm_password, :confirm_profile, :find_friends
 
-  def show
-    case wizard_value(step)
-    when :find_friends
-      @friends = current_user.find_friends
-    end
-    render_wizard
+def show
+  case wizard_value(step)
+  when :find_friends
+    @friends = current_user.find_friends
   end
+  render_wizard
+end
 ```
 
 The important thing to remember is that `step` and the values in `steps` are
