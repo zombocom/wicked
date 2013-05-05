@@ -56,7 +56,7 @@ module Wicked
       #   wizard_value(step) # => :first
       #
       def wizard_value(step_name)
-        wizard_translations[step]
+        wizard_translations[step_name]
       end
 
 
