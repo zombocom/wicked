@@ -30,4 +30,16 @@ class I18nTest < ActiveSupport::IntegrationCase
     assert true                                             # previous_step?
     assert has_content?('second step is the next step')     # next_step?
   end
+
+  test 'wizard_value works on i18n pages' do
+    step = :dos
+    visit(i18n_path(step, :locale => :es))
+    assert has_content?("wizard_value for first: first")
+    assert has_content?("wizard_value for second: second")
+
+    step = :second
+    visit(i18n_path(step, :locale => :en))
+    assert has_content?("wizard_value for first: first")
+    assert has_content?("wizard_value for second: second")
+  end
 end

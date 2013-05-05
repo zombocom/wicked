@@ -1,3 +1,7 @@
+## 0.6.1 (05/05/2013)
+
+* [#62] bugfix to translating wizard values thanks @hwo411
+
 ## 0.6.0 (03/20/2013)
 
 * Breaking change: hardcoded internal `finish` keyword changed to

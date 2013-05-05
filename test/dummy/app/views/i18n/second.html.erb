@@ -1,7 +1,6 @@
-<%= "Hey ya'll we're looking at: #{I18n.t('wicked.second')}" %>
+<%= "Hey ya'll we're looking at: #{I18n.t('wicked.second')}" %><br />
 
-
+<%= "wizard_value for first: #{wizard_value(I18n.t('wicked.first').to_sym)}" %><br />
+<%= "wizard_value for second: #{wizard_value(I18n.t('wicked.second').to_sym)}" %><br />
 
 <%= render :partial =>  "step_positions/step_position" %>
-
-
