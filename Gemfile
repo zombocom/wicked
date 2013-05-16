@@ -1,22 +1,25 @@
-source "http://rubygems.org"
+source "https://rubygems.org"
 
-gem "activesupport" , ">= 3.0.7"
-gem "rails"         , ">= 3.0.7"
+rails_version = ENV["RAILS_VERSION"] || "default"
 
+rails = case rails_version
+when "master"
+  {:github => "rails/rails"}
+when "default"
+  ">= 3.0.7"
+else
+  "~> #{rails_version}"
+end
+
+gem "rails", rails
 
 
 group :development, :test do
   gem 'rake'
-  gem 'jeweler',  "~> 1.6.4"
-  gem "rcov",     ">= 0"
-  gem "capybara", ">= 0.4.0"
+  gem 'jeweler'
+  gem "capybara", "~> 1.1.2"
   gem "launchy"
 
   gem "sqlite3",                          :platform => [:ruby, :mswin, :mingw]
-  gem "activerecord-jdbcsqlite3-adapter", :platform => :jruby
+  gem "activerecord-jdbcsqlite3-adapter", '>= 1.3.0.beta', :platform => :jruby
 end
-
-
-# To use debugger (ruby-debug for Ruby 1.8.7+, ruby-debug19 for Ruby 1.9.2+)
-# gem 'ruby-debug'
-# gem 'ruby-debug19'
