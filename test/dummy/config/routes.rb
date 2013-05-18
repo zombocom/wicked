@@ -5,6 +5,7 @@ Dummy::Application.routes.draw do
   resources :step_positions
   resources :dynamic_steps
   resources :string_steps
+  resources :redirect_to_next
 
   resources :nested do
     resources :builder, :controller => 'nested/builder'
