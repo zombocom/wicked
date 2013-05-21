@@ -23,6 +23,12 @@ class IncludeNavigationTest < ActiveSupport::IntegrationCase
     assert has_content?(step.to_s)
   end
 
+  test 'show second with resource and options parameter' do
+    step = :second
+    visit(bar_path(step, :resource => {:save => true}, bar: 'bar'))
+    assert has_content?("params[:bar] bar")
+  end
+
   test 'skip first' do
     step = :first
     visit(bar_path(step, :skip_step => 'true'))
