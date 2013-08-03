@@ -1,6 +1,5 @@
 language: ruby
 rvm:
-  - 1.8.7
   - 1.9.3
   - 2.0.0
   - ruby-head
@@ -17,8 +16,6 @@ matrix:
   allow_failures:
     - env: "RAILS_VERSION=3.0.7"
       rvm: 2.0.0
-    - env: "RAILS_VERSION=4.0.0.pre"
-      rvm: 1.8.7
     - env: "RAILS_VERSION=master"
     - rvm: ruby-head
 
