@@ -8,3 +8,4 @@ test/dummy/tmp/
 .rvmrc
 
 Gemfile.lock
+.ruby-version
