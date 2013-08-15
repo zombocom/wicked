@@ -1,3 +1,8 @@
+## 1.0.0 (8/03/2013)
+
+* Rails 4 compatible tested version released
+* Remove compatibility for Ruby 1.8.7 since it is EOL
+
 ## 0.6.1 (05/05/2013)
 
 * [#62] bugfix to translating wizard values thanks @hwo411
