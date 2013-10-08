@@ -1,3 +1,7 @@
+## 1.0.1 (8/08/2013)
+
+* Fix security issue #94
+
 ## 1.0.0 (8/03/2013)
 
 * Rails 4 compatible tested version released

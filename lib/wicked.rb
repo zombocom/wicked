@@ -1,3 +1,5 @@
+require 'erb'
+
 module Wicked
   FINISH_STEP = "wicked_finish"
   FIRST_STEP  = "wicked_first"
