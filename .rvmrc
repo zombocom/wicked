@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-ruby_string="ruby-1.9.2-p290"
+ruby_string="ruby-1.9.3"
 gemset_name="wicked"
 
 if rvm list strings | grep -q "${ruby_string}" ; then
