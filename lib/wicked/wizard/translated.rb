@@ -79,9 +79,7 @@ module Wicked
       #
       def setup_wizard_translated
         self.steps = wizard_translations.keys     # must come before setting previous/next steps
-        @step      = setup_step_from(params[:id])
-        check_steps!(@step)
-        set_previous_next(@step)
+        setup_wizard
       end
       public
     end
