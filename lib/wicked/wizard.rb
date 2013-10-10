@@ -2,8 +2,17 @@ module Wicked
   module Wizard
     extend ActiveSupport::Concern
 
-    class InvalidStepError < RuntimeError; end
-    class UndefinedStepsError < RuntimeError; end
+    class InvalidStepError < RuntimeError
+      def initialize
+        super "The requested step did not match any steps defined for this controller."
+      end
+    end
+
+    class UndefinedStepsError < RuntimeError
+      def initialize
+        super "No step definitions have been supplied; if setting via `before_filter`, use `prepend_before_filter`"
+      end
+    end
 
     # Include the modules!!
     include Wicked::Controller::Concerns::Path
@@ -17,7 +26,7 @@ module Wicked
                     :past_step?,      :future_step?,     :previous_step?,
                     :next_step?
       # Set @step and @next_step variables
-      before_filter :setup_wizard, except: :index
+      before_filter :setup_wizard
     end
 
     # forward to first step with whatever params are provided
@@ -48,15 +57,14 @@ module Wicked
       check_redirect_to_first_last!(the_step)
 
       valid_steps = steps + self.class::PROTECTED_STEPS
-      valid_steps.detect { |stp| stp.to_s == the_step }
+      the_step = valid_steps.detect { |stp| stp.to_s == the_step }
+
+      raise InvalidStepError if the_step.nil?
+      the_step
     end
 
-    def check_steps!(the_step)
-      if steps.nil?
-        raise UndefinedStepsError, "No step definitions have been supplied; if setting via `before_filter`, use `prepend_before_filter`"
-      elsif the_step.nil?
-        raise InvalidStepError, "The requested step did not match any steps defined for this controller."
-      end
+    def check_steps!
+      raise UndefinedStepsError if steps.nil?
     end
 
     def set_previous_next(step)
@@ -65,8 +73,10 @@ module Wicked
     end
 
     def setup_wizard
+      check_steps!
+      return if params[:id].nil?
+
       @step = setup_step_from(params[:id])
-      check_steps!(@step)
       set_previous_next(@step)
     end
     public
