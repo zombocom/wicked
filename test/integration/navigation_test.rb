@@ -41,7 +41,7 @@ class IncludeNavigationTest < ActiveSupport::IntegrationCase
 
   test 'invalid step' do
     step = :notastep
-    assert_raise(ActionView::MissingTemplate) do
+    assert_raise(Wicked::Wizard::InvalidStepError) do
       visit(bar_path(step))
     end
   end
