@@ -1,3 +1,9 @@
+## 1.0.2 (8/15/2013)
+
+* Contains Security updates plz upgrade
+* Only allow params[:id] to be used as step if in valid list
+* Better redirect handling thanks @gabrielg
+
 ## 1.0.1 (8/08/2013)
 
 * Fix security issue #94

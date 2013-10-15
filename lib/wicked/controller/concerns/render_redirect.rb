@@ -26,7 +26,7 @@ module Wicked::Controller::Concerns::RenderRedirect
     if the_step.nil? || the_step.to_s == Wicked::FINISH_STEP
       redirect_to_finish_wizard options
     else
-      render ERB::Util.url_encode(the_step), options
+      render the_step, options
     end
   end
 

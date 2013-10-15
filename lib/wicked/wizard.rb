@@ -31,7 +31,7 @@ module Wicked
 
     # forward to first step with whatever params are provided
     def index
-      redirect_to wizard_path(steps.first, clean_params)
+      redirect_to "#{wizard_path(steps.first)}?#{request.query_parameters.to_query}"
     end
 
     # returns the canonical value for a step name, needed for translation support
@@ -40,10 +40,6 @@ module Wicked
     end
 
     private
-
-    def clean_params
-      params.except(:action, :controller)
-    end
 
     def check_redirect_to_first_last!(step)
       redirect_to wizard_path(steps.first) if step.to_s == Wicked::FIRST_STEP
