@@ -6,6 +6,7 @@ Dummy::Application.routes.draw do
   resources :dynamic_steps
   resources :string_steps
   resources :redirect_to_next
+  resources :redirect_to_finish_flash
 
   resources :nested do
     resources :builder, :controller => 'nested/builder'

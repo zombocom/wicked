@@ -44,7 +44,6 @@ module Wicked::Controller::Concerns::RenderRedirect
   end
 
   def redirect_to_finish_wizard(options = {})
-    flash.keep
     redirect_to finish_wizard_path, options
   end
 end
