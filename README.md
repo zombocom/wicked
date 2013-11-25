@@ -229,7 +229,7 @@ put :update, {'id' => 'find_friends', "user" => { "id" => @user.id.to_s }}
 
 ### Internationalization of URLS (I18n)
 
-If your site works in multiple languages, or if you just want more control over how your URL's look you can now use I18n with wicked. To do so you need to replace this:
+If your site works in multiple languages, or if you just want more control over how your URLs look you can now use I18n with wicked. To do so you need to replace this:
 
 ```ruby
 include Wicked::Wizard
@@ -275,7 +275,7 @@ end
 
 For a screencast on setting up and using I18n check out [Railscasts](http://railscasts.com/episodes/138-i18n-revised). You can also read the [free I18n Rails Guide](http://guides.rubyonrails.org/i18n.html).
 
-Now when you visit your controller with the proper locale set your url's should be more readable like `/after_signup/uno` and `after_signup/dos`.
+Now when you visit your controller with the proper locale set your URLs should be more readable like `/after_signup/uno` and `after_signup/dos`.
 
 Wicked expects your files to be named the same as your keys, so when a user visits `after_signup/dos` with the `es` locale it will render the `second.html.erb` file.
 
@@ -322,7 +322,7 @@ If you need any values to match the values set directly in your controller,
  or the names of your files (i.e. `views/../confirm_password.html.erb`, then you need
 to use `wizard_value` method.
 
-## Custom URL's
+## Custom URLs
 
 Very similar to using I18n from above but instead of making new files for different languages, you can stick with one language. Make sure you are using the right module:
 
@@ -340,7 +340,7 @@ en:
     second: "if_you_are_popular_add_friends"
 ```
 
-Now you can change the values in the URL's to whatever you want without changing your controller or your files, just modify your `en.yml`. If you're not using English you can set your default_locale to something other than `en` in your `config/application.rb` file.
+Now you can change the values in the URLs to whatever you want without changing your controller or your files, just modify your `en.yml`. If you're not using English you can set your default_locale to something other than `en` in your `config/application.rb` file.
 
 ```ruby
 config.i18n.default_locale = :de
