@@ -26,8 +26,12 @@ module Wicked::Controller::Concerns::RenderRedirect
     if the_step.nil? || the_step.to_s == Wicked::FINISH_STEP
       redirect_to_finish_wizard options
     else
-      render the_step, options
+      render wizard_step_template(the_step), options
     end
+  end
+
+  def wizard_step_template(the_step)
+    the_step
   end
 
   def redirect_to_next(next_step, options = {})
