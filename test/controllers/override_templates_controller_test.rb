@@ -5,7 +5,7 @@ class OverrideTemplatesControllerTest < ActionController::TestCase
     get :show, :id => "first"
     assert_template :first
 
-    get :show, :id => :second
+    get :show, :id => "second"
     assert_template :override
 
     get :show, :id => "last"
