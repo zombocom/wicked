@@ -31,7 +31,11 @@ module Wicked
 
     # forward to first step with whatever params are provided
     def index
-      redirect_to "#{wizard_path(steps.first)}?#{request.query_parameters.to_query}"
+      if request.query_parameters.blank?
+        redirect_to wizard_path(steps.first)
+      else
+        redirect_to "#{[wizard_path(steps.first), request.query_parameters.to_query].join('?')}"
+      end
     end
 
     # returns the canonical value for a step name, needed for translation support
