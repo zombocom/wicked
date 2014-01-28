@@ -185,6 +185,7 @@ steps  :first, :second       # Sets the order of steps
 step                         # Gets symbol of current step
 next_step                    # Gets symbol of next step
 skip_step                    # Tells render_wizard to skip to the next logical step
+jump_to(:specific_step)      # Jump to :specific_step
 render_wizard                # Renders the current step
 render_wizard(@user)         # Shows next_step if @user.save, otherwise renders current step
 ```
