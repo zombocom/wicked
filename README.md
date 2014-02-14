@@ -184,6 +184,7 @@ Controller Tidbits:
 steps  :first, :second       # Sets the order of steps
 step                         # Gets symbol of current step
 next_step                    # Gets symbol of next step
+previous_step                # Gets symbol of previous step
 skip_step                    # Tells render_wizard to skip to the next logical step
 jump_to(:specific_step)      # Jump to :specific_step
 render_wizard                # Renders the current step
