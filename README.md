@@ -398,7 +398,7 @@ change the step names, they are expected to be strings (not symbols).
 
 ## About
 
-Please poke around the source code, if you see easier ways to get a Rails controller do do what I want, let me know.
+Please poke around the source code, if you see easier ways to get a Rails controller to do what I want, let me know.
 
 If you have a question file an issue or, find me on the Twitters [@schneems](http://twitter.com/schneems).
 
