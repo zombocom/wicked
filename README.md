@@ -9,7 +9,7 @@ Use wicked to make your Rails controllers into step-by-step wizards. To see Wick
 
 ## Why
 
-Many times I'm left wanting a RESTful way to display a step by step process that may or not be associated with a resource. Wicked gives the flexibility to do what I want while hiding all the really nasty stuff you shouldn't do in a controller to make this possible. At it's core Wicked is a RESTful(ish) state machine, but you don't need to know that, just use it.
+Many times I'm left wanting a RESTful way to display a step by step process that may or not be associated with a resource. Wicked gives the flexibility to do what I want while hiding all the really nasty stuff you shouldn't do in a controller to make this possible. At its core Wicked is a RESTful(ish) state machine, but you don't need to know that, just use it.
 
 ## Install
 
