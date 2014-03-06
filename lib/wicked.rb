@@ -1,4 +1,6 @@
 require 'erb'
+require 'active_support/concern'
+require 'active_support/core_ext/object/blank'
 
 module Wicked
   FINISH_STEP = "wicked_finish"
