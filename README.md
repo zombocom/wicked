@@ -121,7 +121,7 @@ class AfterSignupController < ApplicationController
     when :confirm_password
       @user.update_attributes(params[:user])
     end
-    sign_in(@user, :bypass => true) # needed for devise
+    sign_in(@user, bypass: true) # needed for devise
     render_wizard @user
   end
 end
@@ -133,7 +133,7 @@ We're passing `render_wizard` our `@user` object here. If you pass an object int
 To get to this update action, you simply need to submit a form that PUT's to the same url
 
 ```erb
-<%= form_for @user, :url => wizard_path, :method => :put do |f| %>
+<%= form_for @user, url: wizard_path, method: :put do |f| %>
   <%=  f.password_field :password  %>
   <%=  f.password_field :password_confirmation  %>
 
@@ -222,7 +222,7 @@ end
 
 ```ruby
 # Test find_friends block of show action
-get :show, :id => :find_friends
+get :show, id: :find_friends
 
 # Test find_friends block of update action
 put :update, {'id' => 'find_friends', "user" => { "id" => @user.id.to_s }}
