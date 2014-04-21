@@ -28,7 +28,7 @@ module Wicked
         @wizard_translations ||= steps.inject(ActiveSupport::OrderedHash.new) do |hash, step|
           step              = step.to_s.split(".").last
           translation       = wizard_translate(step)
-          hash[translation] = step.to_sym
+          hash[translation] = step.to_s
           hash
         end
       end
@@ -39,11 +39,8 @@ module Wicked
       # wicked:
       #   first: "uno"
       #
-      #   wizard_translate(:first) # => :uno
+      #   wizard_translate("first") # => :uno
       def wizard_translate(step_name)
-        I18n.t("wicked.#{step_name}", :raise => true).to_sym
-      rescue I18n::MissingTranslationData
-        # don't symbolize if key doesn't exist
         I18n.t("wicked.#{step_name}")
       end
 
@@ -53,10 +50,10 @@ module Wicked
       # wicked:
       #   first: "uno"
       #
-      #   wizard_value(step) # => :first
+      #   wizard_value("uno") # => :first
       #
       def wizard_value(step_name)
-        wizard_translations[step_name]
+        wizard_translations["#{step_name}"]
       end
 
 
