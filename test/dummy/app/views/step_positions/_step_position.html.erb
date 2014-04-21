@@ -1,4 +1,6 @@
 <% wizard_steps.each do |s| %>
+  <%= s.inspect %>
+  <%= I18n.t("wicked.#{s}") %>
   <p>
     <strong><u><%= s.inspect %></u></strong><br />
     <%= current_step?(s)  ? "#{s} step is the current step"   : "nope" %><br />

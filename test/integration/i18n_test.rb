@@ -34,7 +34,7 @@ class I18nTest < ActiveSupport::IntegrationCase
   test 'wizard_value works on i18n pages' do
     step = :dos
     visit(i18n_path(step, :locale => :es))
-    assert has_content?("wizard_value for first: first")
+    assert_has_content?("wizard_value for first: first")
     assert has_content?("wizard_value for second: second")
 
     step = :second
