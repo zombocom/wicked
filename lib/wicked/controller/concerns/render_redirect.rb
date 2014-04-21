@@ -44,6 +44,7 @@ module Wicked::Controller::Concerns::RenderRedirect
   end
 
   def redirect_to_finish_wizard(options = {})
+    Rails.logger.debug("Wizard has finished, redirecting to finish_wizard_path: #{finish_wizard_path.inspect}")
     redirect_to finish_wizard_path, options
   end
 end
