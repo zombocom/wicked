@@ -31,6 +31,6 @@ Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each { |f| require f }
 
 class ActiveSupport::IntegrationCase
   def assert_has_content?(content)
-    assert_has_content?(content), "Expected #{page.body} to include #{content.inspect}"
+    assert has_content?(content), "Expected #{page.body} to include #{content.inspect}"
   end
 end
