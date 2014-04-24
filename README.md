@@ -374,7 +374,7 @@ def set_steps
 end
 ```
 
-Note: Do not pass user submitted params directly into `self.steps` while using the custom or translated urls. The translator calls `to_sym` on steps provided, and if a user is allowed to submit arbitrary symbols, they could flood the take down your production app by filling up the symbol table. So, just don't do it.
+Note: Do not pass user submitted params directly into `self.steps` while using the custom or translated urls. The translator calls `to_sym` on steps provided, and if a user is allowed to submit arbitrary symbols, they could take down your production app by filling up the symbol table. So, just don't do it.
 
 ## Keywords
 
