@@ -182,9 +182,9 @@ Controller Tidbits:
 
 ```ruby
 steps  :first, :second       # Sets the order of steps
-step                         # Gets symbol of current step
-next_step                    # Gets symbol of next step
-previous_step                # Gets symbol of previous step
+step                         # Gets current step
+next_step                    # Gets next step
+previous_step                # Gets previous step
 skip_step                    # Tells render_wizard to skip to the next logical step
 jump_to(:specific_step)      # Jump to :specific_step
 render_wizard                # Renders the current step
@@ -373,8 +373,6 @@ def set_steps
   end
 end
 ```
-
-Note: Do not pass user submitted params directly into `self.steps` while using the custom or translated urls. The translator calls `to_sym` on steps provided, and if a user is allowed to submit arbitrary symbols, they could take down your production app by filling up the symbol table. So, just don't do it.
 
 ## Keywords
 

@@ -1,3 +1,8 @@
+## 1.0.3 (4/25/2014)
+
+* All `to_sym` have been removed. Symbol attacks are no longer possible.
+* Log final step behavior with debug
+
 ## 1.0.2 (8/15/2013)
 
 * Contains Security updates plz upgrade
