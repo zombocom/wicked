@@ -1,0 +1,16 @@
+<% wizard_steps.each do |s| %>
+  <%= s.inspect %>
+  <%= I18n.t("wicked.#{s}") %>
+  <p>
+    <strong><u><%= s.inspect %></u></strong><br />
+    <%= current_step?(s)  ? "#{s} step is the current step"   : "nope" %><br />
+    <%= past_step?(s)     ? "#{s} step is a past step"        : "nope" %><br />
+    <%= future_step?(s)   ? "#{s} step is a future step"      : "nope" %><br />
+    <%= previous_step?(s) ? "#{s} step was the previous step" : "nope" %><br />
+    <%= next_step?(s)     ? "#{s} step is the next step"      : "nope" %><br />
+  </p>
+<% end %>
+
+<%= form_tag update_path(step), :method => :put do  %>
+  <%= submit_tag "Next" %>
+<% end %>

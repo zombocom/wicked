@@ -8,7 +8,7 @@ Dummy::Application.configure do
   config.cache_classes = true
 
   # Log error messages when you accidentally call methods on nil.
-  config.whiny_nils = true
+  config.whiny_nils = true if Rails::VERSION::MAJOR == 3
 
   # Show full error reports and disable caching
   config.consider_all_requests_local       = true
