@@ -20,4 +20,6 @@ matrix:
       rvm: 2.0.0
     - env: "RAILS_VERSION=master"
     - rvm: ruby-head
+    - env: "RAILS_VERSION=3.0.7"
+      rvm: 2.1.1
 
