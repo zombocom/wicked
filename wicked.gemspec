@@ -131,16 +131,13 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<jeweler>, [">= 0"])
       s.add_development_dependency(%q<capybara>, ["~> 1.1.2"])
       s.add_development_dependency(%q<launchy>, [">= 0"])
-      s.add_development_dependency(%q<sqlite3>, [">= 0"])
-      s.add_development_dependency(%q<activerecord-jdbcsqlite3-adapter>, [">= 1.3.0.beta"])
+      s.add_development_dependency 'appraisal'
     else
       s.add_dependency(%q<rails>, [">= 3.0.7"])
       s.add_dependency(%q<rake>, [">= 0"])
       s.add_dependency(%q<jeweler>, [">= 0"])
       s.add_dependency(%q<capybara>, ["~> 1.1.2"])
       s.add_dependency(%q<launchy>, [">= 0"])
-      s.add_dependency(%q<sqlite3>, [">= 0"])
-      s.add_dependency(%q<activerecord-jdbcsqlite3-adapter>, [">= 1.3.0.beta"])
     end
   else
     s.add_dependency(%q<rails>, [">= 3.0.7"])
@@ -148,8 +145,6 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<jeweler>, [">= 0"])
     s.add_dependency(%q<capybara>, ["~> 1.1.2"])
     s.add_dependency(%q<launchy>, [">= 0"])
-    s.add_dependency(%q<sqlite3>, [">= 0"])
-    s.add_dependency(%q<activerecord-jdbcsqlite3-adapter>, [">= 1.3.0.beta"])
   end
 end
 
