@@ -262,7 +262,7 @@ es:
 It would also be a good idea to create a english version under `config/locales/en.yml` or your english speaking friends will get errors. If your app already uses I18n you don't need to do anything else, if not you will need to make sure that you set the `I18n.locale` on each request you could do this somewhere like a before filter in your application_controller.rb
 
 ```ruby
-before_filter :set_locale
+before_action :set_locale
 
 private
 
@@ -356,11 +356,11 @@ Custom crafted wizard urls: just another way Wicked makes your app a little more
 
 ## Dynamic Step Names
 
-If you wish to set the order of your steps dynamically you can do this with a `prepend_before_filter` and `self.steps =` like this:
+If you wish to set the order of your steps dynamically you can do this with a `prepend_before_action` and `self.steps =` like this:
 
 ```ruby
 include Wicked::Wizard
-prepend_before_filter :set_steps
+prepend_before_action :set_steps
 
 # ...
 
