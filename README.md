@@ -401,3 +401,11 @@ Please poke around the source code, if you see easier ways to get a Rails contro
 If you have a question file an issue or, find me on the Twitters [@schneems](http://twitter.com/schneems).
 
 This project rocks and uses MIT-LICENSE.
+
+## Contributing
+
+1. Fork it ( https://github.com/schneems/wicked/fork )
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Commit your changes (`git commit -am 'Add some feature'`)
+4. Push to the branch (`git push origin my-new-feature`)
+5. Create a new Pull Request
