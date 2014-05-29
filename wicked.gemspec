@@ -52,7 +52,7 @@ Gem::Specification.new do |s|
     "test/dummy/app/controllers/pages_controller.rb",
     "test/dummy/app/controllers/redirect_to_finish_flash_controller.rb",
     "test/dummy/app/controllers/redirect_to_next_controller.rb",
-    "test/dummy/app/controllers/steps_controller.rb",
+    "test/dummy/app/controllers/step_positions_controller.rb",
     "test/dummy/app/controllers/string_steps_controller.rb",
     "test/dummy/app/helpers/application_helper.rb",
     "test/dummy/app/models/bar.rb",
