@@ -31,6 +31,7 @@ Gem::Specification.new do |s|
     "lib/wicked/controller/concerns/path.rb",
     "lib/wicked/controller/concerns/render_redirect.rb",
     "lib/wicked/controller/concerns/steps.rb",
+    "lib/wicked/railtie.rb",
     "lib/wicked/engine.rb",
     "lib/wicked/wizard.rb",
     "lib/wicked/wizard/translated.rb",

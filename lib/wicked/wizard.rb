@@ -64,7 +64,7 @@ module Wicked
       raise UndefinedStepsError if steps.nil?
     end
 
-    def set_previous_next(step)
+    def set_previous_next(_step)
       @previous_step = previous_step(@step)
       @next_step     = next_step(@step)
     end
@@ -76,7 +76,6 @@ module Wicked
       @step = setup_step_from(params[:id])
       set_previous_next(@step)
     end
-    public
   end
 end
 

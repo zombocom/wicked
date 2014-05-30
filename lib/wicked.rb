@@ -1,4 +1,3 @@
-require 'erb'
 require 'active_support/concern'
 require 'active_support/core_ext/object/blank'
 
@@ -6,13 +5,6 @@ module Wicked
   FINISH_STEP = "wicked_finish"
   FIRST_STEP  = "wicked_first"
   LAST_STEP   = "wicked_last"
-
-  module Controller
-    module Concerns
-    end
-  end
-  module Wizard
-  end
 end
 
 class WickedError < StandardError; end
@@ -23,5 +15,6 @@ require 'wicked/controller/concerns/steps'
 require 'wicked/controller/concerns/path'
 require 'wicked/wizard'
 require 'wicked/wizard/translated'
+require 'wicked/railtie'
 require 'wicked/engine'
 
