@@ -6,8 +6,7 @@ test/dummy/log/*.log
 test/dummy/tmp/
 .DS_Store
 .rvmrc
-
-Gemfile.lock
+*.lock
 .ruby-version
 .ruby-gemset
 gemfiles/*.lock

@@ -1,24 +1,23 @@
-appraise "3.0" do
-  gem "rails", "~> 3.0.7"
-  gemspec
+appraise "rails-3.0" do
+  gem "rails", "~> 3.2.0"
 end
 
-appraise "3.1" do
+appraise "rails-3.1" do
   gem "rails", "~> 3.1.0"
-  gemspec
 end
 
-appraise "3.2" do
-  gem "rails", "~> 3.2.15"
-  gemspec
+appraise "rails-3.2" do
+  gem "rails", "~> 3.2.0"
 end
 
-appraise "4.0" do
+appraise "rails-4.0" do
   gem "rails", "~> 4.0.0"
-  gemspec
 end
 
-appraise "4.1" do
+appraise "rails-4.1" do
   gem "rails", "~> 4.1.0"
-  gemspec
+end
+
+appraise "rails-edge" do
+  gem "rails", github: 'rails/rails'
 end

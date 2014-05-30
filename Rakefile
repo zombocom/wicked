@@ -1,6 +1,9 @@
 # encoding: UTF-8
 require 'rubygems'
 require 'bundler'
+require 'rake'
+require 'rdoc/task'
+require 'rake/testtask'
 
 begin
   Bundler.setup(:default, :development, :test)
@@ -9,11 +12,6 @@ rescue Bundler::BundlerError => e
   $stderr.puts "Run `bundle install` to install missing gems"
   exit e.status_code
 end
-
-require 'rake'
-require 'rdoc/task'
-
-require 'rake/testtask'
 
 Rake::TestTask.new(:test) do |t|
   t.libs << 'lib'

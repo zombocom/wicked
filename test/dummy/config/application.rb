@@ -42,5 +42,6 @@ module Dummy
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
     config.eager_load = true
+    I18n.enforce_available_locales= true
   end
 end
