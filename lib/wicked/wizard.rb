@@ -18,6 +18,7 @@ module Wicked
     include Wicked::Controller::Concerns::Path
     include Wicked::Controller::Concerns::RenderRedirect
     include Wicked::Controller::Concerns::Steps
+    include Wicked::Controller::Concerns::PrimaryResource
 
     included do
       # Give our Views helper methods!

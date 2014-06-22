@@ -3,6 +3,7 @@
 class Nested::BuilderController < ApplicationController
   include Wicked::Wizard
 
+  primary_resource :nested
   steps :first, :second, :last_step
 
   # nested_builder GET    /nested/:nested_id/builder/:id(.:format)      {:action=>"show", :controller=>"builder"}
@@ -14,5 +15,9 @@ class Nested::BuilderController < ApplicationController
   end
 
   def update
+    if step == :first
+      @nested = Nested.new
+      render_wizard(@nested)
+    end
   end
 end
