@@ -6,7 +6,11 @@ module Wicked::Controller::Concerns::RenderRedirect
     process_resource!(resource)
 
     if @skip_to
-      redirect_to wizard_path(@skip_to), options
+      path_options = {}
+      if primary_resource && (primary_resource_id = primary_resource.send(primary_resource.class.primary_key))
+        path_options[:"#{primary_resource_name}_id"] = primary_resource_id
+      end
+      redirect_to wizard_path(@skip_to, path_options), options
     else
       render_step wizard_value(step), options
     end

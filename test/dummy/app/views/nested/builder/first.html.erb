@@ -1,2 +1,5 @@
 first
 
+<%= form_for :nested, :url => wizard_path, :html => { :method => :put } do |f| %>
+  <%= f.submit 'Create Nested' %>
+<% end %>
