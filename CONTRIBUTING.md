@@ -10,7 +10,7 @@ There are two main ways to contribute to this project.
 
 ## Development
 
-Using [CodeTriage](http://www.codetriage.com/schneems/wicked]) as a volunteer, you'll receive an email each day with a link to an open issue that needs to be triaged in this project. You'll also receive instructions on how to triage issues.
+Using [CodeTriage](http://www.codetriage.com/schneems/wicked) as a volunteer, you'll receive an email each day with a link to an open issue that needs to be triaged in this project. You'll also receive instructions on how to triage issues.
 
 1. Fork it! ( https://github.com/schneems/wicked/fork )
 2. Create your feature branch: `git checkout -b my-new-feature`
