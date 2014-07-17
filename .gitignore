@@ -10,3 +10,4 @@ test/dummy/tmp/
 Gemfile.lock
 .ruby-version
 .ruby-gemset
+gemfiles/*.lock

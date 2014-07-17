@@ -402,6 +402,24 @@ If you have a question file an issue or, find me on the Twitters [@schneems](htt
 
 This project rocks and uses MIT-LICENSE.
 
+## Compatibility
+
+This gem works with Rails 3.0, 3.1, 3.2, 4.0 and 4.1, and is compatible with Ruby 1.9.3, 2.0.0, 2.1.1 or JRuby (with some exceptions).
+
+Refer to the Travis CI test matrix for test using your version of Ruby and Rails.
+
+Exceptions: Rails 3.0 support is only for Ruby 1.9.3 or JRuby, not Ruby 2.0.0 or newer.
+
+## Running Gem Tests
+
+Run tests with `rake`.
+
+To run tests against all the appraisal gemfiles, use `appraisal rake`. To run tests against one specific gemfile,
+use `appraisal 4.1 rake`.
+
+Note that Rails 3.0 tests don't pass in Ruby 2.0.0 or newer, so during development it may be easier to disable this
+gemfile if you are using a current version of Ruby.
+
 ## Contributing
 
 See the [Contributing guide](https://github.com/schneems/wicked/blob/master/CONTRIBUTING.md).
