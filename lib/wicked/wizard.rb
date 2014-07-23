@@ -10,7 +10,7 @@ module Wicked
 
     class UndefinedStepsError < RuntimeError
       def initialize
-        super "No step definitions have been supplied; if setting via `before_filter`, use `prepend_before_filter`"
+        super 'No step definitions have been supplied; if setting via `before_action`, use `prepend_before_action`'
       end
     end
 
@@ -26,7 +26,7 @@ module Wicked
                     :past_step?,      :future_step?,     :previous_step?,
                     :next_step?
       # Set @step and @next_step variables
-      before_filter :setup_wizard
+      before_action :setup_wizard
     end
 
     # forward to first step with whatever params are provided
@@ -64,7 +64,7 @@ module Wicked
       raise UndefinedStepsError if steps.nil?
     end
 
-    def set_previous_next(step)
+    def set_previous_next(_step)
       @previous_step = previous_step(@step)
       @next_step     = next_step(@step)
     end
@@ -76,7 +76,6 @@ module Wicked
       @step = setup_step_from(params[:id])
       set_previous_next(@step)
     end
-    public
   end
 end
 

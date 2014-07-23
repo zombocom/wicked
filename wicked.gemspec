@@ -18,6 +18,7 @@ Gem::Specification.new do |s|
     "README.md"
   ]
   s.files = [
+    'Appraisals',
     ".rvmrc",
     ".travis.yml",
     "CHANGELOG.md",
@@ -31,6 +32,7 @@ Gem::Specification.new do |s|
     "lib/wicked/controller/concerns/path.rb",
     "lib/wicked/controller/concerns/render_redirect.rb",
     "lib/wicked/controller/concerns/steps.rb",
+    "lib/wicked/railtie.rb",
     "lib/wicked/engine.rb",
     "lib/wicked/wizard.rb",
     "lib/wicked/wizard/translated.rb",
@@ -122,29 +124,11 @@ Gem::Specification.new do |s|
   s.rubygems_version = "2.2.2"
   s.summary = "Use Wicked to turn your controller into a wizard"
 
-  if s.respond_to? :specification_version then
+  if s.respond_to? :specification_version
     s.specification_version = 4
-
-    if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<rails>, [">= 3.0.7"])
-      s.add_development_dependency(%q<rake>, [">= 0"])
-      s.add_development_dependency(%q<jeweler>, [">= 0"])
-      s.add_development_dependency(%q<capybara>, ["~> 1.1.2"])
-      s.add_development_dependency(%q<launchy>, [">= 0"])
-      s.add_development_dependency 'appraisal'
-    else
-      s.add_dependency(%q<rails>, [">= 3.0.7"])
-      s.add_dependency(%q<rake>, [">= 0"])
-      s.add_dependency(%q<jeweler>, [">= 0"])
-      s.add_dependency(%q<capybara>, ["~> 1.1.2"])
-      s.add_dependency(%q<launchy>, [">= 0"])
-    end
-  else
-    s.add_dependency(%q<rails>, [">= 3.0.7"])
-    s.add_dependency(%q<rake>, [">= 0"])
-    s.add_dependency(%q<jeweler>, [">= 0"])
-    s.add_dependency(%q<capybara>, ["~> 1.1.2"])
-    s.add_dependency(%q<launchy>, [">= 0"])
   end
+
+  s.add_runtime_dependency('rails', ['>= 3.0.7'])
+
 end
 

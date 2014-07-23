@@ -5,8 +5,8 @@ module Wicked
       include Wicked::Wizard
 
       included do
-        skip_before_filter :setup_wizard
-        before_filter      :setup_wizard_translated
+        skip_before_action :setup_wizard
+        before_action      :setup_wizard_translated
 
         helper_method      :wizard_translate, :wizard_value
       end
