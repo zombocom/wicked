@@ -51,7 +51,7 @@ module Wicked::Controller::Concerns::Steps
       steps   = args
       check_protected!(steps)
       prepend_before_filter(options) do
-        self.steps = steps
+        self.steps = steps.dup
       end
     end
 
