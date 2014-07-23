@@ -5,8 +5,8 @@ class JumpController < ApplicationController
   steps :first, :second, :last_step
 
   def show
-    skip_step if params[:skip_step]
-    jump_to :last_step if params[:jump_to]
+    skip_step(params[:skip_step_options]) if params[:skip_step]
+    jump_to :last_step, params[:skip_step_options] if params[:jump_to]
     if params[:resource]
       value = params[:resource][:save] == 'true'
       @bar  = Bar.new(value)
