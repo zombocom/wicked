@@ -65,8 +65,8 @@ module Wicked
     end
 
     def set_previous_next(step)
-      @previous_step = previous_step(@step)
-      @next_step     = next_step(@step)
+      @previous_step = previous_step(step)
+      @next_step     = next_step(step)
     end
 
     def setup_wizard
