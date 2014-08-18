@@ -165,7 +165,7 @@ Now you've got a fully functioning AfterSignup controller! If you have questions
 
 ## Quick Reference
 
-View/URL Helpers
+**View/URL Helpers:**
 
 ```ruby
 wizard_path                  # Grabs the current path in the wizard
@@ -178,7 +178,7 @@ previous_wizard_path         # Url of the previous step
 ```
 
 
-Controller Tidbits:
+**Controller Tidbits:**
 
 ```ruby
 steps  :first, :second       # Sets the order of steps
@@ -188,11 +188,24 @@ previous_step                # Gets previous step
 skip_step                    # Tells render_wizard to skip to the next logical step
 jump_to(:specific_step)      # Jump to :specific_step
 render_wizard                # Renders the current step
-render_wizard(@user)         # Shows next_step if @user.save, otherwise renders current step
+render_wizard(@user)         # Shows next_step if @user.save, otherwise renders
 ```
 
+**Redirect options**
 
-Finally:
+Both `skip_step` and `jump_to` will cause a redirect. If you want to pass params to the step you are skipping to you can pass it into those.
+
+```
+skip_step(foo: "bar")
+```
+
+and
+
+```
+jump_to(:specific_step, foo: "bar")
+```
+
+**Finally:**
 
 Don't forget to create your named views
 
@@ -206,7 +219,7 @@ app/
 ```
 
 
-# Finish Wizard Path
+## Finish Wizard Path
 
 You can specify the url that your user goes to by over-riding the `finish_wizard_path` in your wizard controller.
 
@@ -217,7 +230,6 @@ def finish_wizard_path
 end
 ```
 
-
 ### Testing with RSpec
 
 ```ruby
@@ -227,7 +239,6 @@ get :show, id: :find_friends
 # Test find_friends block of update action
 put :update, {'id' => 'find_friends', "user" => { "id" => @user.id.to_s }}
 ```
-
 
 ### Internationalization of URLS (I18n)
 
@@ -305,7 +316,6 @@ end
 
 Instead you need to use `wizard_value` to get the "reverse translation" in your controller code like this:
 
-
 ```ruby
 steps :confirm_password, :confirm_profile, :find_friends
 
@@ -347,6 +357,7 @@ Now you can change the values in the URLs to whatever you want without changing 
 ```ruby
 config.i18n.default_locale = :de
 ```
+
 **Important:** Don't forget to use `wizard_value()` method to make
 sure you are using the right cannonical values of `step`,
 `previous_step`, `next_step`, etc. If you are comparing them to non
