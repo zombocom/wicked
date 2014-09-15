@@ -1,3 +1,8 @@
+## Master
+
+* [#136] `skip_step` and `jump_to` now take redirect options. You can use
+this to effectively pass parameters to a redirect initiated by either of these method.
+
 ## 1.0.3 (4/25/2014)
 
 * All `to_sym` have been removed. Symbol attacks are no longer possible.
