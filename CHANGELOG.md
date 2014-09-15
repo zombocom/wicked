@@ -1,5 +1,7 @@
 ## Master
 
+## 1.1.0 (9/15/2014)
+
 * [#136] `skip_step` and `jump_to` now take redirect options. You can use
 this to effectively pass parameters to a redirect initiated by either of these method.
 
