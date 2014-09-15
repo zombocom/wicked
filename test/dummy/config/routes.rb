@@ -4,6 +4,7 @@ Dummy::Application.routes.draw do
   resources :jump
   resources :step_positions
   resources :dynamic_steps
+  resources :dynamic_different_steps
   resources :string_steps
   resources :redirect_to_next
   resources :redirect_to_finish_flash

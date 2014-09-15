@@ -19,7 +19,6 @@ class JumpNavigationTest < ActiveSupport::IntegrationCase
     step = :first
     visit(jump_path(step, :skip_step => true, :skip_step_options => {:foo => :bar}))
     assert_has_content?('second')
-    save_and_open_page
     assert !has_content?('last_step')
   end
 

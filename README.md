@@ -367,11 +367,12 @@ Custom crafted wizard urls: just another way Wicked makes your app a little more
 
 ## Dynamic Step Names
 
-If you wish to set the order of your steps dynamically you can do this with a `prepend_before_filter` and `self.steps =` like this:
+If you wish to set the order of your steps dynamically you can do this by manually calling  and `self.steps = [# <some steps> ]` in a `before_action` method. Then call `before_action :setup_wizard` after so that wicked knows when it is safe to initializelike this:
 
 ```ruby
 include Wicked::Wizard
-prepend_before_filter :set_steps
+before_action :set_steps
+before_action :setup_wizard
 
 # ...
 
@@ -384,6 +385,8 @@ def set_steps
   end
 end
 ```
+
+NOTE: The order of the `before_action` matters, when `setup_wizard` is called it will validate the presence of `self.steps`, you must call your custom step setting code before this point.
 
 ## Keywords
 
@@ -400,10 +403,10 @@ Wicked::FINISH_STEP
 ```
 
 You can build links using these constants
-`after_signup_path(Wicked::LAST_STEP)` which will redirect the user to
+`after_signup_path(Wicked::FIRST_STEP)` which will redirect the user to
 the first step you've specified. This might be useful for redirecting a
 user to a step when you're not already in a Wicked controller. If you
-change the step names, they are expected to be strings (not symbols).
+change the constants, they are expected to be strings (not symbols).
 
 ## About
 
