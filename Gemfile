@@ -10,4 +10,5 @@ group :development, :test do
   gem "sqlite3",                          :platform => [:ruby, :mswin, :mingw]
   gem "activerecord-jdbcsqlite3-adapter", '>= 1.3.0.beta', :platform => :jruby
   gem "jeweler"
+  gem "capybara"
 end
