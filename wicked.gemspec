@@ -15,12 +15,10 @@ Gem::Specification.new do |gem|
   gem.extra_rdoc_files = [
     "README.md"
   ]
-
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths = ["lib"]
-
   gem.add_dependency             "rails",    [">= 3.0.7"]
   gem.add_development_dependency "capybara", [">= 0"]
 end
