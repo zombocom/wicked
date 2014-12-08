@@ -93,14 +93,14 @@ module Wicked::Controller::Concerns::Steps
     step
   end
 
+  def current_step_index
+    step_index_for(step)
+  end
+
   private
 
   def step_index_for(step_name)
     steps.index(step_name)
-  end
-
-  def current_step_index
-    step_index_for(step)
   end
 
   def current_and_given_step_exists?(step_name)
@@ -108,4 +108,3 @@ module Wicked::Controller::Concerns::Steps
     return true
   end
 end
-
