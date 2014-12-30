@@ -189,6 +189,7 @@ skip_step                    # Tells render_wizard to skip to the next logical s
 jump_to(:specific_step)      # Jump to :specific_step
 render_wizard                # Renders the current step
 render_wizard(@user)         # Shows next_step if @user.save, otherwise renders
+wizard_steps                 # Gets ordered list of steps
 ```
 
 **Redirect options**
