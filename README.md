@@ -220,6 +220,14 @@ app/
 ```
 
 
+## Finish Logic
+You can specify a controller function to be called as the wizard completes the final step, before redirecting to the finish_wizard_path.
+```ruby
+def after_finish
+  ... some ruby code
+end
+```
+
 ## Finish Wizard Path
 
 You can specify the url that your user goes to by over-riding the `finish_wizard_path` in your wizard controller.
