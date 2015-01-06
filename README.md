@@ -129,6 +129,15 @@ end
 
 We're passing `render_wizard` our `@user` object here. If you pass an object into `render_wizard` it will show the next step if the object saves or re-render the previous view if it does not save.
 
+**NOTE** You can customize the check to see if the wizard should proceed or re-render the previous view by overriding `#valid_resource?(resource)` to use your custom logic. This is often useful if you handle validating and saving objects manually within the case statements.
+
+```ruby
+  def valid_resource?(resource)
+    resource.save # default
+    # resource.errors.empty? - could be useful when dealing with form objects
+  end
+```
+
 
 To get to this update action, you simply need to submit a form that PUT's to the same url
 
