@@ -239,6 +239,9 @@ get :show, id: :find_friends
 
 # Test find_friends block of update action
 put :update, {'id' => 'find_friends', "user" => { "id" => @user.id.to_s }}
+
+# If you're saving your wizard steps to keep track of which step the user is on (in case he logs out in between wizard). You could do
+expect(@user.wizard_step).to eq('find_friends')
 ```
 
 ### Internationalization of URLS (I18n)
