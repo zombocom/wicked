@@ -231,6 +231,13 @@ def finish_wizard_path
 end
 ```
 
+### Track Wizard Step
+
+If you want to keep track of wizard step when user logs out in middle of wizard process you can add a column(eg. wizard_step) in your table(eg. users) to track the steps and for updating the step you could do
+```ruby
+@user.update_attribute(:wizard_step, step)
+```
+
 ### Testing with RSpec
 
 ```ruby
