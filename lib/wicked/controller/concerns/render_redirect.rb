@@ -44,10 +44,11 @@ module Wicked::Controller::Concerns::RenderRedirect
   end
 
   def redirect_to_finish_wizard(options = {})
-    Rails.logger.debug("Wizard has finished, redirecting to finish_wizard_path: #{finish_wizard_path.inspect}")
+    wicked_final_redirect_path = finish_wizard_path
+    Rails.logger.debug("Wizard has finished, redirecting to finish_wizard_path: #{wicked_final_redirect_path.inspect}")
     # flash.keep is required for Rails 3 where a flash message is lost on a second redirect.
     flash.keep
-    redirect_to finish_wizard_path, options
+    redirect_to wicked_final_redirect_path, options
   end
 end
 
