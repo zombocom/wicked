@@ -26,12 +26,15 @@ module Wicked
                     :past_step?,      :future_step?,     :previous_step?,
                     :next_step?
       # Set @step and @next_step variables
+      alias_method_chain :index, :wizard  if respond_to?(:index)
+      
       before_filter :setup_wizard
     end
 
     # forward to first step with whatever params are provided
-    def index
-      redirect_to wizard_path(steps.first, request.query_parameters)
+    def index_with_wizard
+      return redirect_to wizard_path(steps.first, request.query_parameters) if steps.present?
+      index_without_wizard
     end
 
     # returns the canonical value for a step name, needed for translation support
