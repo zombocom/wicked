@@ -1,5 +1,9 @@
 ## Master
 
+## 1.1.1 (2/23/2015)
+
+* [#159] Default wizard index actions now work when using `default_url_options`
+
 ## 1.1.0 (9/15/2014)
 
 * [#136] `skip_step` and `jump_to` now take redirect options. You can use
