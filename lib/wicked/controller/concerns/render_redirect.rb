@@ -1,7 +1,6 @@
 module Wicked::Controller::Concerns::RenderRedirect
   extend ActiveSupport::Concern
 
-
   def render_wizard(resource = nil, options = {})
     process_resource!(resource)
 
@@ -14,12 +13,23 @@ module Wicked::Controller::Concerns::RenderRedirect
 
   def process_resource!(resource)
     if resource
-      if resource.save
+      if valid_resource?(resource)
         @skip_to ||= @next_step
       else
         @skip_to = nil
       end
     end
+  end
+
+  # Method that can be overridden to check the validity of the resource.
+  # - A common use case might be when using form / service objects to handle the
+  #   validating and saving of the resource.
+  # - Larger Example: https://gist.github.com/gogogarrett/8b170fd6cfc43bf55552
+  # ex:
+  # resource.persisted?
+  # resource.errors.empty?
+  def valid_resource?(resource)
+    resource.save
   end
 
   def render_step(the_step, options = {})
@@ -51,4 +61,3 @@ module Wicked::Controller::Concerns::RenderRedirect
     redirect_to wicked_final_redirect_path, options
   end
 end
-
