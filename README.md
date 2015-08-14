@@ -195,13 +195,15 @@ wizard_steps                 # Gets ordered list of steps
 
 **Redirect options**
 
-Both `skip_step` and `jump_to` will cause a redirect. If you want to pass params to the step you are skipping to you can pass it into those.
+Both `skip_step` and `jump_to` will cause a redirect. 
 
 ```
 skip_step(foo: "bar")
 ```
 
-and
+*Note that unlike you would do when making a call to Rails' `redirect_to`, you should not call `return` immediately after `skip_step` and `jump_to`, since the actual redirection is done in the render_wizard call.*
+
+If you want to pass params to the step you are skipping to you can pass it into those:
 
 ```
 jump_to(:specific_step, foo: "bar")
