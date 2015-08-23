@@ -412,21 +412,23 @@ the first step you've specified. This might be useful for redirecting a
 user to a step when you're not already in a Wicked controller. If you
 change the constants, they are expected to be strings (not symbols).
 
+## Support
+
+Most problems using this library are general problems using Ruby/Rails. If you cannot get something to work correctly please open up a question on [stack overflow](http://stackoverflow.com/). If you've not posted there before, provide a description of the problem you're having and usually some example code and a copy of your rails logs helps.
+
+If you've found a bug, please open a ticket on the issue tracker with a small example app that reproduces the behavior.
+
 ## About
 
-Please poke around the source code, if you see easier ways to get a Rails controller to do what I want, let me know.
-
-If you have a question file an issue or, find me on the Twitters [@schneems](http://twitter.com/schneems).
+Made by [@schneems](http://twitter.com/schneems).
 
 This project rocks and uses MIT-LICENSE.
 
 ## Compatibility
 
-This gem works with Rails 3.0, 3.1, 3.2, 4.0 and 4.1, and is compatible with Ruby 1.9.3, 2.0.0, 2.1.1 or JRuby (with some exceptions).
+Refer to the Travis CI test matrix for test using your version of Ruby and Rails. If there is a newer Ruby or Rails you don't see on there, please send me a pull request adding a gemfile to the `gemfiles` directory and updating the `.travis.yml` file.
 
-Refer to the Travis CI test matrix for test using your version of Ruby and Rails.
-
-Exceptions: Rails 3.0 support is only for Ruby 1.9.3 or JRuby, not Ruby 2.0.0 or newer.
+Note: Rails 3.0 support is only for Ruby 1.9.3 or JRuby, not Ruby 2.0.0 or newer.
 
 ## Running Gem Tests
 
