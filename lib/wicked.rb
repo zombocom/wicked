@@ -13,6 +13,7 @@ module Wicked
   end
   module Wizard
   end
+  autoload :WizardController, "wicked/wizard_controller"
 end
 
 class WickedError < StandardError; end
@@ -24,4 +25,3 @@ require 'wicked/controller/concerns/path'
 require 'wicked/wizard'
 require 'wicked/wizard/translated'
 require 'wicked/engine'
-
