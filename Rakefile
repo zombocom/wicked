@@ -2,6 +2,8 @@
 require 'rubygems'
 require 'bundler'
 
+require 'bundler/gem_tasks'
+
 begin
   Bundler.setup(:default, :development, :test)
 rescue Bundler::BundlerError => e
