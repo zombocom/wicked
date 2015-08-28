@@ -43,5 +43,6 @@ module Dummy
     config.filter_parameters += [:password]
 
     config.eager_load = false
+    config.secret_key_base = 'foo'
   end
 end

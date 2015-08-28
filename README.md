@@ -195,7 +195,7 @@ wizard_steps                 # Gets ordered list of steps
 
 **Redirect options**
 
-Both `skip_step` and `jump_to` will cause a redirect. 
+Both `skip_step` and `jump_to` will cause a redirect.
 
 ```
 skip_step(foo: "bar")
@@ -371,7 +371,7 @@ Custom crafted wizard urls: just another way Wicked makes your app a little more
 
 ## Dynamic Step Names
 
-If you wish to set the order of your steps dynamically you can do this by manually calling  and `self.steps = [# <some steps> ]` in a `before_action` method. Then call `before_action :setup_wizard` after so that wicked knows when it is safe to initialize like this:
+If you wish to set the order of your steps dynamically you can do this by manually calling  and `self.steps = [# <some steps> ]` in a `before_action` method. Then call `before_action :setup_wizard` after so that wicked knows when it is safe to initializelike this:
 
 ```ruby
 include Wicked::Wizard
@@ -426,16 +426,30 @@ This project rocks and uses MIT-LICENSE.
 
 ## Compatibility
 
-Refer to the Travis CI test matrix for test using your version of Ruby and Rails. If there is a newer Ruby or Rails you don't see on there, please send me a pull request adding a gemfile to the `gemfiles` directory and updating the `.travis.yml` file.
+Refer to the Travis CI test matrix for test using your version of Ruby and Rails. If there is a newer Ruby or Rails you don't see on there, please add an entry to the Apprasials file, then run `$ apprasials install` and update the `.travis.yml` file and send me a pull request.
 
 Note: Rails 3.0 support is only for Ruby 1.9.3 or JRuby, not Ruby 2.0.0 or newer.
 
 ## Running Gem Tests
 
-Run tests with `rake`.
+First install all gemfiles:
 
-To run tests against all the appraisal gemfiles, use `appraisal rake`. To run tests against one specific gemfile,
-use `appraisal 4.1 rake`.
+```
+$ appraisal install
+```
+
+Then to run tests against all the appraisal gemfiles, use:
+
+```
+$ appraisal rake test
+```
+
+To run tests against one specific gemfile,
+use
+
+```
+$ appraisal 4.1 rake test
+```
 
 Note that Rails 3.0 tests don't pass in Ruby 2.0.0 or newer, so during development it may be easier to disable this
 gemfile if you are using a current version of Ruby.
