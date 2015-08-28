@@ -11,3 +11,4 @@ Gemfile.lock
 .ruby-version
 .ruby-gemset
 gemfiles/*.lock
+*.gem
