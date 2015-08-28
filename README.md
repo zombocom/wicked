@@ -371,7 +371,7 @@ Custom crafted wizard urls: just another way Wicked makes your app a little more
 
 ## Dynamic Step Names
 
-If you wish to set the order of your steps dynamically you can do this by manually calling  and `self.steps = [# <some steps> ]` in a `before_action` method. Then call `before_action :setup_wizard` after so that wicked knows when it is safe to initializelike this:
+If you wish to set the order of your steps dynamically you can do this by manually calling  and `self.steps = [# <some steps> ]` in a `before_action` method. Then call `before_action :setup_wizard` after so that wicked knows when it is safe to initialize like this:
 
 ```ruby
 include Wicked::Wizard
