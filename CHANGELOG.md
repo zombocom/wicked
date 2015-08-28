@@ -1,5 +1,10 @@
 ## Master
 
+## 1.2.1 (8/28/2015)
+
+* [#186] Do not require use of ApplicationController with wicked.
+
+
 ## 1.1.1 (2/23/2015)
 
 * [#159] Default wizard index actions now work when using `default_url_options`
