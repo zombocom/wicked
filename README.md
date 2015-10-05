@@ -363,7 +363,7 @@ config.i18n.default_locale = :de
 ```
 
 **Important:** Don't forget to use `wizard_value()` method to make
-sure you are using the right cannonical values of `step`,
+sure you are using the right canonical values of `step`,
 `previous_step`, `next_step`, etc. If you are comparing them to non
 wicked generate values.
 
