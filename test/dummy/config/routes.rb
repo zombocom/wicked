@@ -9,6 +9,10 @@ Dummy::Application.routes.draw do
   resources :redirect_to_next
   resources :redirect_to_finish_flash
   resources :updates
+  
+  resources :pages
+  
+  resources :settings
 
   resources :nested do
     resources :builder, :controller => 'nested/builder'

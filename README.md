@@ -393,6 +393,16 @@ end
 
 NOTE: The order of the `before_action` matters, when `setup_wizard` is called it will validate the presence of `self.steps`, you must call your custom step setting code before this point.
 
+
+## With Existing Controller Methods
+
+If you use wicked with existing controller, you may want to use alternative ```index``` method. Replace the following with your ```include Wicked::Wizard```
+
+```ruby
+include Wicked::Wizard::Settings
+include Wicked::Wizard
+```
+
 ## Keywords
 
 There are a few "magical" keywords that will take you to the first step,

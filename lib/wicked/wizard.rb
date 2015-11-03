@@ -27,13 +27,13 @@ module Wicked
                     :next_step?
       # Set @step and @next_step variables
       before_filter :setup_wizard
+      
+      # forward to first step with whatever params are provided
+      define_method(respond_to?(:use_wizard_index) ? use_wizard_index : 'index') do
+        return redirect_to wizard_path(steps.first, request.query_parameters)
+      end
     end
-
-    # forward to first step with whatever params are provided
-    def index
-      redirect_to wizard_path(steps.first, request.query_parameters)
-    end
-
+      
     # returns the canonical value for a step name, needed for translation support
     def wizard_value(step_name)
       step_name
@@ -75,7 +75,9 @@ module Wicked
       @step = setup_step_from(params[:id])
       set_previous_next(@step)
     end
+    
     public
+    
   end
 end
 
