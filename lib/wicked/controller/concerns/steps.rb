@@ -52,7 +52,7 @@ module Wicked::Controller::Concerns::Steps
       options = args.extract_options!
       steps   = args
       check_protected!(steps)
-      prepend_before_filter(options) do
+      prepend_before_action(options) do
         self.steps = steps.dup
       end
     end

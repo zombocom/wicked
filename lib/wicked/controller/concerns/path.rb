@@ -20,6 +20,7 @@ module Wicked::Controller::Concerns::Path
 
 
   def wizard_path(goto_step = nil, options = {})
+    options = options.to_h if options.respond_to?(:permitted?) && options.respond_to?(:to_h)
     options = { :controller => wicked_controller,
                 :action     => 'show',
                 :id         => goto_step || params[:id],
