@@ -1,6 +1,6 @@
 class DynamicStepsController < ApplicationController
   include Wicked::Wizard
-  prepend_before_filter :set_steps
+  prepend_before_action :set_steps
 
   def show
     render_wizard

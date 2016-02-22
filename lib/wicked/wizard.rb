@@ -10,23 +10,25 @@ module Wicked
 
     class UndefinedStepsError < RuntimeError
       def initialize
-        super "No step definitions have been supplied; if setting via `before_filter`, use `prepend_before_filter`"
+        super "No step definitions have been supplied; if setting via `before_action`, use `prepend_before_action`"
       end
     end
 
     # Include the modules!!
+
     include Wicked::Controller::Concerns::Path
     include Wicked::Controller::Concerns::RenderRedirect
     include Wicked::Controller::Concerns::Steps
 
     included do
+      include Wicked::Controller::Concerns::Action
       # Give our Views helper methods!
       helper_method :wizard_path,     :next_wizard_path, :previous_wizard_path,
                     :step,            :wizard_steps,     :current_step?,
                     :past_step?,      :future_step?,     :previous_step?,
                     :next_step?
       # Set @step and @next_step variables
-      before_filter :setup_wizard
+      before_action :setup_wizard
     end
 
     # forward to first step with whatever params are provided
