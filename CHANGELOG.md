@@ -1,9 +1,12 @@
 ## Master
 
+## 1.3.0
+
+* [#201] Avoid Rails 5 deprecations.
+
 ## 1.2.1 (8/28/2015)
 
 * [#186] Do not require use of ApplicationController with wicked.
-
 
 ## 1.1.1 (2/23/2015)
 
