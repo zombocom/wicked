@@ -192,6 +192,10 @@ jump_to(:specific_step)      # Jump to :specific_step
 render_wizard                # Renders the current step
 render_wizard(@user)         # Shows next_step if @user.save, otherwise renders
 wizard_steps                 # Gets ordered list of steps
+past_step?(step)             # does step come before the current request's step in wizard_steps
+future_step?(step)           # does step come after the current request's step in wizard_steps
+previous_step?(step)         # is step immediately before the current request's step
+next_step?(step)             # is step immediately after the current request's step
 ```
 
 **Redirect options**
@@ -458,4 +462,3 @@ gemfile if you are using a current version of Ruby.
 ## Contributing
 
 See the [Contributing guide](https://github.com/schneems/wicked/blob/master/CONTRIBUTING.md).
-
