@@ -433,7 +433,13 @@ Note: Rails 3.0 support is only for Ruby 1.9.3 or JRuby, not Ruby 2.0.0 or newer
 
 ## Running Gem Tests
 
-First install all gemfiles:
+First, install the development gems:
+
+```
+$ bundle install
+```
+
+Now that `appraisal` is installed, use it to set up all the gemfiles for the test matrix:
 
 ```
 $ appraisal install
