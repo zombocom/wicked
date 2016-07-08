@@ -44,8 +44,8 @@ module Wicked
     private
 
     def check_redirect_to_first_last!(step)
-      redirect_to wizard_path(steps.first) if step.to_s == Wicked::FIRST_STEP
-      redirect_to wizard_path(steps.last)  if step.to_s == Wicked::LAST_STEP
+      redirect_to wizard_path(steps.first, request.query_parameters) if step.to_s == Wicked::FIRST_STEP
+      redirect_to wizard_path(steps.last, request.query_parameters)  if step.to_s == Wicked::LAST_STEP
     end
 
     def setup_step_from(the_step)
