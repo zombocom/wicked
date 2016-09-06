@@ -1,3 +1,6 @@
+gem "rack", "< 2" if Gem::Version.new(RUBY_VERSION) < Gem::Version.new("2.2")
+gem 'mime-types', '< 3', require: false if RUBY_VERSION.start_with?('1.9')
+
 appraise "3.1" do
   gem "rails", "~> 3.1.0"
   gemspec
