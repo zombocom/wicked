@@ -1,5 +1,9 @@
 ## Master
 
+## 1.3.1
+
+* Docs and minor fixes
+
 ## 1.3.0
 
 * [#201] Avoid Rails 5 deprecations.
