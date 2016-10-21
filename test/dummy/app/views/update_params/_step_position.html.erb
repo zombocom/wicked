@@ -11,6 +11,6 @@
   </p>
 <% end %>
 
-<%= form_tag update_path(step, {one: 'two'}), :method => :put do  %>
+<%= form_tag update_param_path(step, {one: 'two'}), :method => :put do  %>
   <%= submit_tag "Next" %>
 <% end %>
