@@ -397,6 +397,39 @@ end
 
 NOTE: The order of the `before_action` matters, when `setup_wizard` is called it will validate the presence of `self.steps`, you must call your custom step setting code before this point.
 
+## Send params to finish_wizard_path method
+
+If you wish to send parameters to the `finish_wizard_path` method that can be done by adding to your controller the method with the params argument `def finish_wizard_path(params) ... end`.
+
+In order to send the parameters to the method here is an example of the show method:
+
+```ruby
+steps :first_step, :second_step
+
+def show
+  # ...
+  render_wizard(nil, {}, { hello: 'world' })
+end
+
+def update
+  # ...
+  render_wizard(@user, {}, { hello: 'world' })
+end
+
+def finish_wizard_path(params)
+  # here you can access params and that would be equal to { hello: 'world' }
+end
+```
+
+The `wizard_path` and `next_wizard_path` methods also take parameters that can then be accessed or visible in the `show` and `update` actions of the controller. You can use the methods like so:
+
+```ruby
+next_wizard_path({ hello: 'world' })
+wizard_path(nil, { hello: 'world' })
+# the wizard_path with the step specified would look like this
+wizard_path(:wicked_finish, wizard_id: @user.id, hello: 'world')
+```
+
 ## Keywords
 
 There are a few "magical" keywords that will take you to the first step,
