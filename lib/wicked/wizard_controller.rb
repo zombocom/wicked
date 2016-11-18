@@ -32,7 +32,7 @@ class Wicked::WizardController < ApplicationController
   #     @user.update_attributes(params[:user])
   #   end
   #   sign_in(@user, :bypass => true) # needed for devise
-  #   render_wizard
+  #   render_wizard @user
   # end
 end
 
