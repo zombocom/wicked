@@ -72,7 +72,7 @@ module Wicked
 
     def setup_wizard
       check_steps!
-      return if params[:id].nil?
+      return unless params.key?(:id)
 
       @step = setup_step_from(params[:id])
       set_previous_next(@step)
