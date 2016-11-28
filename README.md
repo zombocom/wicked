@@ -239,6 +239,13 @@ def finish_wizard_path
 end
 ```
 
+### Track Wizard Step
+
+If you want to keep track of wizard step when user logs out in middle of wizard process you can add a column(eg. wizard_step) in your table(eg. users) to track the steps and for updating the step you could do
+```ruby
+@user.update_attribute(:wizard_step, step)
+```
+
 ### Testing with RSpec
 
 ```ruby
@@ -247,6 +254,9 @@ get :show, id: :find_friends
 
 # Test find_friends block of update action
 put :update, {'id' => 'find_friends', "user" => { "id" => @user.id.to_s }}
+
+# If you're saving your wizard steps to keep track of which step the user is on (in case he logs out in between wizard). You could do
+expect(@user.wizard_step).to eq('find_friends')
 ```
 
 ### Internationalization of URLS (I18n)
