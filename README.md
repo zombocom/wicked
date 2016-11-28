@@ -174,6 +174,9 @@ wizard_path                  # Grabs the current path in the wizard
 wizard_path(:specific_step)  # Url of the :specific_step
 next_wizard_path             # Url of the next step
 previous_wizard_path         # Url of the previous step
+steps                        # Gets array of steps
+step                         # Gets current step
+current_step_index           # Gets index of current step
 
 # These only work while in a Wizard, and are not absolute paths
 # You can have multiple wizards in a project with multiple `wizard_path` calls

@@ -26,7 +26,7 @@ module Wicked
       helper_method :wizard_path,     :next_wizard_path, :previous_wizard_path,
                     :step,            :wizard_steps,     :current_step?,
                     :past_step?,      :future_step?,     :previous_step?,
-                    :next_step?
+                    :next_step?,      :steps,            :current_step_index
       # Set @step and @next_step variables
       before_action :setup_wizard
     end
@@ -80,4 +80,3 @@ module Wicked
     public
   end
 end
-
