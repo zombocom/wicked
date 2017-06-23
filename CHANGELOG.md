@@ -1,5 +1,9 @@
 ## Master
 
+## 1.3.2
+
+* Support for params (#222)
+
 ## 1.3.1
 
 * Docs and minor fixes
