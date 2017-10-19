@@ -3,7 +3,7 @@ module Wicked::Controller::Concerns::RenderRedirect
 
 
   def render_wizard(resource = nil, options = {}, params = {})
-    process_resource!(resource)
+    process_resource!(resource, options)
 
     if @skip_to
       url_params = (@wicked_redirect_params || {}).merge(params)
@@ -13,13 +13,19 @@ module Wicked::Controller::Concerns::RenderRedirect
     end
   end
 
-  def process_resource!(resource)
-    if resource
-      if resource.save
-        @skip_to ||= @next_step
-      else
-        @skip_to = nil
-      end
+  def process_resource!(resource, options = {})
+    return unless resource
+
+    saved = if resource.method(:save).arity >= 1
+              resource.save(context: options[:context])
+            else
+              resource.save
+            end
+
+    if saved
+      @skip_to ||= @next_step
+    else
+      @skip_to = nil
     end
   end
 
@@ -54,4 +60,3 @@ module Wicked::Controller::Concerns::RenderRedirect
     redirect_to wicked_final_redirect_path, options
   end
 end
-
