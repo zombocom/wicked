@@ -4,6 +4,7 @@
 
 [![Build Status](https://travis-ci.org/schneems/wicked.svg?branch=master)](https://travis-ci.org/schneems/wicked)
 [![Code Climate](https://codeclimate.com/github/schneems/wicked/badges/gpa.svg)](https://codeclimate.com/github/schneems/wicked)
+[![Help Contribute to Open Source](https://www.codetriage.com/schneems/wicked/badges/users.svg)](https://www.codetriage.com/schneems/wicked)
 
 
 Use wicked to make your Rails controllers into step-by-step wizards. To see Wicked in action check out the example [Rails app](https://github.com/schneems/wicked_example) or [watch the screencast](http://schneems.com/post/18437886598/wizard-ify-your-rails-controllers-with-wicked).
