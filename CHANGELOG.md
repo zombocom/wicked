@@ -1,5 +1,9 @@
 ## Master
 
+## 1.3.3
+
+* Support being able to set a context in validation (https://github.com/schneems/wicked/pull/236)
+
 ## 1.3.2
 
 * Support for params (#222)
