@@ -16,13 +16,13 @@ module Wicked::Controller::Concerns::RenderRedirect
   def process_resource!(resource, options = {})
     return unless resource
 
-    saved = if resource.method(:save).arity >= 1
-              resource.save(context: options[:context])
-            else
-              resource.save
-            end
+    if options[:context] && resource.method(:save).arity >= 1
+      did_save = resource.save(context: options[:context])
+    else
+      did_save = resource.save
+    end
 
-    if saved
+    if did_save
       @skip_to ||= @next_step
     else
       @skip_to = nil
