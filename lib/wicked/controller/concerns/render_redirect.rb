@@ -9,6 +9,8 @@ module Wicked::Controller::Concerns::RenderRedirect
       url_params = (@wicked_redirect_params || {}).merge(params)
       redirect_to wizard_path(@skip_to, url_params), options
     else
+      flash[:alert] = resource.errors.full_messages.join(', ') if options[:show_alerts] && resource.errors.any?
+
       render_step(wizard_value(step), options, params)
     end
   end
