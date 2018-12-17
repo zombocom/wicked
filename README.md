@@ -466,7 +466,7 @@ This project rocks and uses MIT-LICENSE.
 
 ## Compatibility
 
-Refer to the Travis CI test matrix for test using your version of Ruby and Rails. If there is a newer Ruby or Rails you don't see on there, please add an entry to the Apprasials file, then run `$ apprasials install` and update the `.travis.yml` file and send me a pull request.
+Refer to the Travis CI test matrix for test using your version of Ruby and Rails. If there is a newer Ruby or Rails you don't see on there, please add an entry to the Appraisals file, then run `$ appraisals install` and update the `.travis.yml` file and send me a pull request.
 
 Note: Rails 3.0 support is only for Ruby 1.9.3 or JRuby, not Ruby 2.0.0 or newer.
 
