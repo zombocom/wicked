@@ -245,10 +245,10 @@ end
 
 ```ruby
 # Test find_friends block of show action
-get :show, id: :find_friends
+get :show, params: { id: :find_friends }
 
 # Test find_friends block of update action
-put :update, {'id' => 'find_friends', "user" => { "id" => @user.id.to_s }}
+patch :update, params: {'id' => 'find_friends', "user" => { "id" => @user.id.to_s }}
 ```
 
 ### Internationalization of URLS (I18n)
