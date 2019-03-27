@@ -16,7 +16,7 @@ module Wicked::Controller::Concerns::RenderRedirect
   def process_resource!(resource, options = {})
     return unless resource
 
-    if options[:context] && resource.method(:save).arity >= 1
+    if options[:context]
       did_save = resource.save(context: options[:context])
     else
       did_save = resource.save
