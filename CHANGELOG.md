@@ -1,5 +1,9 @@
 ## Master
 
+## 1.3.4
+
+* Remove arity check for AR objects (https://github.com/schneems/wicked/pull/257)
+
 ## 1.3.3
 
 * Support being able to set a context in validation (https://github.com/schneems/wicked/pull/236)
