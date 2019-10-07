@@ -7,6 +7,7 @@ Dummy::Application.routes.draw do
   resources :dynamic_different_steps
   resources :string_steps
   resources :redirect_to_next
+  resources :specific_template
   resources :redirect_to_finish_flash
   resources :updates
   resources :update_params
