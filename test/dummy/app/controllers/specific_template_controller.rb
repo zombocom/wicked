@@ -14,12 +14,12 @@ class SpecificTemplateController < ApplicationController
   end
 
   prepend_before_action :set_steps
-  before_action :set_dynamic_random_step
 
   def show
     if params[:id].in?(Steps.fix)
       render_wizard
     else
+      @dynamic_random_step = Steps::RANDOM_RANGE.find { |s| s == params[:id] }
       render_wizard(template: :main)
     end
   end
@@ -31,9 +31,4 @@ class SpecificTemplateController < ApplicationController
       _steps_ += Steps.fix
       self.steps = _steps_
     end
-
-    def set_dynamic_random_step
-      @dynamic_random_step = Steps::RANDOM_RANGE.find { |s| s == params[:id] }
-    end
 end
-  
