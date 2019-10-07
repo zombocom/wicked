@@ -399,6 +399,25 @@ end
 
 NOTE: The order of the `before_action` matters, when `setup_wizard` is called it will validate the presence of `self.steps`, you must call your custom step setting code before this point.
 
+## Specify Custom Template
+
+When you've steps that are generated from a dynamic source (e.g Database) you can create a common view for all of your steps instead of creating individually. Just pass a keyword parameter `template` to `render_wizard` method.
+
+```ruby
+include Wicked::Wizard
+before_action :set_steps
+
+def show
+  # ...
+  render_wizard(template: :my_template)
+end
+
+private
+def set_steps
+  self.steps = MyModel.all.map(&:step_name)
+end
+```
+
 ## Send params to finish_wizard_path method
 
 If you wish to send parameters to the `finish_wizard_path` method that can be done by adding to your controller the method with the params argument `def finish_wizard_path(params) ... end`.
