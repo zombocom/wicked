@@ -35,4 +35,3 @@ class Wicked::WizardController < ApplicationController
   #   render_wizard @user
   # end
 end
-

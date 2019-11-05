@@ -15,7 +15,6 @@ module Wicked
     end
 
     # Include the modules!!
-
     include Wicked::Controller::Concerns::Path
     include Wicked::Controller::Concerns::RenderRedirect
     include Wicked::Controller::Concerns::Steps
@@ -82,4 +81,3 @@ module Wicked
     end
   end
 end
-

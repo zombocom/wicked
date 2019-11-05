@@ -82,4 +82,3 @@ module Wicked
     end
   end
 end
-
