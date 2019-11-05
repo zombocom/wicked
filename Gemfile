@@ -1,10 +1,6 @@
 source "https://rubygems.org"
 
-
-# Put all runtime dependencies in wicked.gemspec
-# Put development requirements for different platforms here
-# Put more specific gem declarations in different gemfiles/*.gemfile files
-gemspec :path => ::File.expand_path("../.", __FILE__)
+gemspec
 
 group :development, :test do
   gem "sqlite3", :platform => [:ruby, :mswin, :mingw]
