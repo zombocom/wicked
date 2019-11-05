@@ -28,7 +28,7 @@ module Wicked
                     :past_step?,      :future_step?,     :previous_step?,
                     :next_step?
       # Set @step and @next_step variables
-      before_action :setup_wizard
+      before_action :initialize_wicked_variables, :setup_wizard
     end
 
     # forward to first step with whatever params are provided
@@ -42,6 +42,11 @@ module Wicked
     end
 
     private
+
+    private def initialize_wicked_variables
+      @skip_to = nil
+      @wicked_redirect_params = nil
+    end
 
     def check_redirect_to_first_last!(step)
       redirect_to wizard_path(steps.first) if step.to_s == Wicked::FIRST_STEP
