@@ -4,7 +4,6 @@ rvm:
   - 2.4.0
   - 2.5.0
   - 2.6.0
-  - jruby-19mode
 
 sudo: false
 
@@ -12,3 +11,10 @@ gemfile:
   - gemfiles/rails_5.1.gemfile
   - gemfiles/rails_5.2.gemfile
   - gemfiles/rails_6.0.1.gemfile
+
+jobs:
+  exclude:
+  - gemfile: gemfiles/rails_6.0.1.gemfile
+    rvm: 2.3.0
+  - gemfile: gemfiles/rails_6.0.1.gemfile
+    rvm: 2.4.0
