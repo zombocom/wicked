@@ -7,7 +7,6 @@ class SecurityTest < ActiveSupport::IntegrationCase
     assert_raise(Wicked::Wizard::InvalidStepError) do
       visit(bar_path(step))
     end
-    refute has_content?('sqlite3')
   end
 
   # only works on *nix systems
@@ -18,6 +17,5 @@ class SecurityTest < ActiveSupport::IntegrationCase
     assert_raise(Wicked::Wizard::InvalidStepError) do
       visit(bar_path(step))
     end
-    refute has_content?('aardvark')
   end
 end
