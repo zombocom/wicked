@@ -83,7 +83,6 @@ module Wicked::Controller::Concerns::Steps
     step ||= steps.first
   end
 
-
   def next_step(current_step = nil)
     return @next_step if current_step.nil?
     index = steps.index(current_step)
@@ -91,18 +90,15 @@ module Wicked::Controller::Concerns::Steps
     step  ||= Wicked::FINISH_STEP
   end
 
-  private
-
-  def step_index_for(step_name)
+  private def step_index_for(step_name)
     steps.index(step_name)
   end
 
-  def current_step_index
+  private def current_step_index
     step_index_for(step)
   end
 
-  def current_and_given_step_exists?(step_name)
+  private def current_and_given_step_exists?(step_name)
     current_step_index.present? && steps.index(step_name).present?
   end
 end
-
