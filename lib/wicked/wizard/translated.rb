@@ -57,7 +57,6 @@ module Wicked
       end
 
 
-      private
       # sets up a translated wizard controller
       # translations are expected under the 'wicked' namespace
       #
@@ -74,11 +73,10 @@ module Wicked
       #
       #     steps "wicked.first", "wicked.second"
       #
-      def setup_wizard_translated
+      private def setup_wizard_translated
         self.steps = wizard_translations.keys     # must come before setting previous/next steps
         setup_wizard
       end
-      public
     end
   end
 end
