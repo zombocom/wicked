@@ -20,7 +20,7 @@ class SpecificTemplateController < ApplicationController
       render_wizard
     else
       @dynamic_random_step = Steps::RANDOM_RANGE.find { |s| s == params[:id] }
-      render_wizard(template: :main)
+      render_wizard(nil, template: :main)
     end
   end
 

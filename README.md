@@ -401,7 +401,7 @@ NOTE: The order of the `before_action` matters, when `setup_wizard` is called it
 
 ## Specify Custom Template
 
-When you've steps that are generated from a dynamic source (e.g Database) you can create a common view for all of your steps instead of creating individually. Just pass a keyword parameter `template` to `render_wizard` method.
+When you've steps that are generated from a dynamic source (e.g Database) you can create a common view for all of your steps instead of creating them individually. Just pass `template: :my_template` option to `render_wizard` method.
 
 ```ruby
 include Wicked::Wizard
@@ -409,7 +409,7 @@ before_action :set_steps
 
 def show
   # ...
-  render_wizard(template: :my_template)
+  render_wizard(nil, template: :my_template)
 end
 
 private
