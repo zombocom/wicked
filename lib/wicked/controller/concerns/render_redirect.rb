@@ -1,7 +1,6 @@
 module Wicked::Controller::Concerns::RenderRedirect
   extend ActiveSupport::Concern
 
-
   def render_wizard(resource = nil, options = {}, params = {}, template: nil)
     process_resource!(resource, options)
 

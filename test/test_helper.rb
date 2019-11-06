@@ -1,14 +1,9 @@
 # Configure Rails Envinronment
 ENV["RAILS_ENV"] = "test"
 
-
-
 ENGINE_RAILS_ROOT=File.join(File.dirname(__FILE__), '../')
 require File.expand_path("../dummy/config/environment.rb",  __FILE__)
 require "rails/test_help"
-
-
-
 
 ActionMailer::Base.delivery_method = :test
 ActionMailer::Base.perform_deliveries = true
@@ -21,10 +16,15 @@ require "capybara/rails"
 Capybara.default_driver   = :rack_test
 Capybara.default_selector = :css
 
-
-
-# Run any available migration
-ActiveRecord::Migrator.migrate File.expand_path("../dummy/db/migrate/", __FILE__)
+# https://github.com/plataformatec/devise/blob/master/test/orm/active_record.rb
+migrate_path = File.expand_path("../rails_app/db/migrate", __FILE__)
+if Rails.version.start_with? '6'
+  ActiveRecord::MigrationContext.new(migrate_path, ActiveRecord::SchemaMigration).migrate
+elsif Rails.version.start_with? '5.2'
+  ActiveRecord::MigrationContext.new(migrate_path).migrate
+else
+  ActiveRecord::Migrator.migrate(migrate_path)
+end
 
 # Load support files
 Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each { |f| require f }
