@@ -2,13 +2,14 @@ module Wicked::Controller::Concerns::RenderRedirect
   extend ActiveSupport::Concern
 
   def render_wizard(resource = nil, options = {}, params = {})
+    template = options.delete(:template)
     process_resource!(resource, options)
 
     if @skip_to
       url_params = (@wicked_redirect_params || {}).merge(params)
       redirect_to wizard_path(@skip_to, url_params), options
     else
-      step_or_specific_template = options.delete(:template) || wizard_value(step)
+      step_or_specific_template = template || wizard_value(step)
       render_step(step_or_specific_template, options, params)
     end
   end
