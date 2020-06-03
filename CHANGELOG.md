@@ -1,5 +1,6 @@
 ## Unreleased
 
+* Return `422` (`:unprocessable_entity`) when form submissions fails (https://github.com/zombocom/wicked/pull/294)
 * Pass the provided step when raising InvalidStepError errors (https://github.com/zombocom/wicked/pull/284)
 
 ## 1.4.0
