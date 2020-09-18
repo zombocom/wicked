@@ -1,9 +1,8 @@
 language: ruby
 rvm:
-  - 2.3.0
-  - 2.4.0
-  - 2.5.0
-  - 2.6.0
+  - 2.5.8
+  - 2.6.6
+  - 2.7.1
 
 sudo: false
 
@@ -14,7 +13,5 @@ gemfile:
 
 jobs:
   exclude:
-  - gemfile: gemfiles/rails_6.0.1.gemfile
-    rvm: 2.3.0
-  - gemfile: gemfiles/rails_6.0.1.gemfile
-    rvm: 2.4.0
+  - gemfile: gemfiles/rails_5.1.gemfile
+    rvm: 2.7.1
