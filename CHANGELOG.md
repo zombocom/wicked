@@ -1,6 +1,7 @@
 ## Master
 
 * Update readme to include `current_step?` (https://github.com/zombocom/wicked/pull/271)
+* Add `*_url` versions of `wizard_path`, `next_wizard_path`, and `previous_wizard_path` (https://github.com/zombocom/wicked/pull/272)
 
 ## 1.3.4
 
