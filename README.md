@@ -200,6 +200,7 @@ render_wizard                                 # Renders the current step
 render_wizard(@user)                          # Shows next_step if @user.save, otherwise renders
 render_wizard(@user, context: :account_setup) # Shows next_step if @user.save(context: :account_setup), otherwise renders
 wizard_steps                                  # Gets ordered list of steps
+current_step?(step)                           # is step the same as the current request's step
 past_step?(step)                              # does step come before the current request's step in wizard_steps
 future_step?(step)                            # does step come after the current request's step in wizard_steps
 previous_step?(step)                          # is step immediately before the current request's step

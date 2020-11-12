@@ -1,5 +1,7 @@
 ## Master
 
+* Update readme to include `current_step?` (https://github.com/zombocom/wicked/pull/271)
+
 ## 1.3.4
 
 * Remove arity check for AR objects (https://github.com/schneems/wicked/pull/257)
