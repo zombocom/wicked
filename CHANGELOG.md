@@ -1,6 +1,7 @@
 ## Master
 
 * Update readme to include `current_step?` (https://github.com/zombocom/wicked/pull/271)
+* Add `:status` field to response options and default to `:unprocessable_entity / 422` when model update fails. (https://github.com/zombocom/wicked/pull/267)
 
 ## 1.3.4
 
