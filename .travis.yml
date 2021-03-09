@@ -5,6 +5,7 @@ rvm:
   - 2.7.1
 
 sudo: false
+cache: bundler
 
 gemfile:
   - gemfiles/rails_5.1.gemfile
