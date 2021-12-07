@@ -4,4 +4,6 @@ first
 <%= "params[:foo] #{params[:foo]}" %>
 <%= link_to 'last', wizard_path(:last_step) %>
 <%= link_to 'current', wizard_path %>
+<%= link_to 'current url', wizard_url %>
 <%= link_to 'skip', next_wizard_path %>
+<%= link_to 'next url', next_wizard_url %>

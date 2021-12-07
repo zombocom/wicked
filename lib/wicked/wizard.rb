@@ -22,10 +22,10 @@ module Wicked
     included do
       include Wicked::Controller::Concerns::Action
       # Give our Views helper methods!
-      helper_method :wizard_path,     :next_wizard_path, :previous_wizard_path,
-                    :step,            :wizard_steps,     :current_step?,
-                    :past_step?,      :future_step?,     :previous_step?,
-                    :next_step?
+      helper_method :wizard_path, :wizard_url, :next_wizard_path, :next_wizard_url, :previous_wizard_path,
+                    :previous_wizard_url, :step, :wizard_steps, :current_step?, :past_step?, :future_step?,
+                    :next_step?,  :previous_step?
+
       # Set @step and @next_step variables
       before_action :initialize_wicked_variables, :setup_wizard
     end

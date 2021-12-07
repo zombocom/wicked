@@ -177,12 +177,17 @@ Now you've got a fully functioning AfterSignup controller! If you have questions
 **View/URL Helpers:**
 
 ```ruby
-wizard_path                  # Grabs the current path in the wizard
-wizard_path(:specific_step)  # Url of the :specific_step
-next_wizard_path             # Url of the next step
-previous_wizard_path         # Url of the previous step
+wizard_path                  # relative url of the current step
+wizard_path(:specific_step)  # relative url of a :specific_step
+next_wizard_path             # relative url of the next step
+previous_wizard_path         # relative url of the previous step
 
-# These only work while in a Wizard, and are not absolute paths
+wizard_url                  # fully qualified url of the current step
+wizard_url(:specific_step)  # fully qualified url of a :specific_step
+next_wizard_url             # fully qualified url of the next step
+previous_wizard_url         # fully qualified url of the previous step
+
+# These only work while in a Wizard
 # You can have multiple wizards in a project with multiple `wizard_path` calls
 ```
 
