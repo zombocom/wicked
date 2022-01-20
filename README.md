@@ -121,7 +121,7 @@ class AfterSignupController < ApplicationController
     @user = current_user
     case step
     when :confirm_password
-      @user.update_attributes(user_params)
+      @user.update(user_params)
     end
     sign_in(@user, bypass: true) # needed for devise
     render_wizard @user
@@ -137,7 +137,7 @@ end
 
 We're passing `render_wizard` our `@user` object here. If you pass an object into `render_wizard` it will show the next step if the object saves or re-render the previous view if it does not save.
 
-Note that `render_wizard` does attempt to save the passed object. This means that in the above example, the object will be saved twice. This will cause any callbacks to run twice also. If this is undesirable for your use case, then calling `assign_attributes` (which does not save the object) instead of `update_attributes` might work better.
+Note that `render_wizard` does attempt to save the passed object. This means that in the above example, the object will be saved twice. This will cause any callbacks to run twice also. If this is undesirable for your use case, then calling `assign_attributes` (which does not save the object) instead of `update` might work better.
 
 To get to this update action, you simply need to submit a form that PUT's to the same url
 
