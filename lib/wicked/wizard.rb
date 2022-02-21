@@ -3,8 +3,12 @@ module Wicked
     extend ActiveSupport::Concern
 
     class InvalidStepError < RuntimeError
-      def initialize
-        super "The requested step did not match any steps defined for this controller."
+      attr_reader :step
+
+      def initialize(step = nil)
+        self.step = step
+
+        super "The requested step did not match any steps defined for this controller: #{step.inspect}"
       end
     end
 
@@ -57,10 +61,10 @@ module Wicked
       check_redirect_to_first_last!(the_step)
 
       valid_steps = steps + self.class::PROTECTED_STEPS
-      the_step = valid_steps.detect { |stp| stp.to_s == the_step }
+      resolved_step = valid_steps.detect { |stp| stp.to_s == the_step }
 
-      raise InvalidStepError if the_step.nil?
-      the_step
+      raise InvalidStepError.new(the_step) if resolved_step.nil?
+      resolved_step
     end
 
     private def check_steps!
