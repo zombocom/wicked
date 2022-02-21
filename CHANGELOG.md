@@ -1,5 +1,7 @@
 ## Unreleased
 
+* Pass the provided step when raising InvalidStepError errors (https://github.com/zombocom/wicked/pull/284)
+
 ## 1.4.0
 
 * Update readme to include `current_step?` (https://github.com/zombocom/wicked/pull/271)
