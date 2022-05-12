@@ -1,4 +1,4 @@
-![](http://cl.ly/image/3O2i1P061o3y/content.png)
+![](./wicked.png)
 
 # Step-By-Step Wizard Controllers
 
