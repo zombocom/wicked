@@ -3,7 +3,7 @@ module Wicked
     extend ActiveSupport::Concern
 
     class InvalidStepError < RuntimeError
-      attr_reader :step
+      attr_accessor :step
 
       def initialize(step = nil)
         self.step = step
