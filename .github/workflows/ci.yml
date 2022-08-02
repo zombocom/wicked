@@ -1,0 +1,53 @@
+name: CI
+
+on:
+  - push
+  - pull_request
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        ruby:
+          - '2.5'
+          - '2.6'
+          - '2.7'
+          - '3.0'
+          - '3.1'
+          # - 'head'
+        gemfile:
+          - gemfiles/rails_5.2.gemfile
+          - gemfiles/rails_6.0.gemfile
+          # - gemfiles/rails_7.0.gemfile
+          # - gemfile: gemfiles/rails_head.gemfile
+        exclude:
+          # - ruby: '2.5'
+          #   gemfile: gemfiles/rails_7.0.gemfile
+          # - ruby: '2.6'
+          #   gemfile: gemfiles/rails_7.0.gemfile
+          - ruby: '2.7'
+            gemfile: gemfiles/rails_5.2.gemfile
+          - ruby: '3.0'
+            gemfile: gemfiles/rails_5.2.gemfile
+          - ruby: '3.0'
+            gemfile: gemfiles/rails_6.0.gemfile
+          - ruby: '3.1'
+            gemfile: gemfiles/rails_5.2.gemfile
+          - ruby: '3.1'
+            gemfile: gemfiles/rails_6.0.gemfile
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Set up Ruby
+        env:
+          BUNDLE_GEMFILE: ${{ matrix.gemfile }}
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby }}
+          bundler-cache: true
+      - name: Run test
+        env:
+          BUNDLE_GEMFILE: ${{ matrix.gemfile }}
+        run: bundle exec rake test
