@@ -2,7 +2,7 @@
 
 # Step-By-Step Wizard Controllers
 
-[![Build Status](https://travis-ci.org/schneems/wicked.svg?branch=master)](https://travis-ci.org/schneems/wicked)
+[![Build Status](https://github.com/zombocom/wicked/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/zombocom/wicked)
 [![Code Climate](https://codeclimate.com/github/schneems/wicked/badges/gpa.svg)](https://codeclimate.com/github/schneems/wicked)
 [![Help Contribute to Open Source](https://www.codetriage.com/schneems/wicked/badges/users.svg)](https://www.codetriage.com/schneems/wicked)
 
