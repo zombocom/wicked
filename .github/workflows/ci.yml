@@ -20,13 +20,13 @@ jobs:
         gemfile:
           - gemfiles/rails_5.2.gemfile
           - gemfiles/rails_6.0.gemfile
-          # - gemfiles/rails_7.0.gemfile
+          - gemfiles/rails_7.0.gemfile
           # - gemfile: gemfiles/rails_head.gemfile
         exclude:
-          # - ruby: '2.5'
-          #   gemfile: gemfiles/rails_7.0.gemfile
-          # - ruby: '2.6'
-          #   gemfile: gemfiles/rails_7.0.gemfile
+          - ruby: '2.5'
+            gemfile: gemfiles/rails_7.0.gemfile
+          - ruby: '2.6'
+            gemfile: gemfiles/rails_7.0.gemfile
           - ruby: '2.7'
             gemfile: gemfiles/rails_5.2.gemfile
           - ruby: '3.0'
