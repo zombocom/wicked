@@ -1,5 +1,7 @@
 ## Unreleased
 
+## 2.0.0
+
 * Return `422` (`:unprocessable_entity`) when form submissions fails. Turbo requires an HTTP Status code between 400-499 or 500-599 when a FormSubmission request fails. This pull request makes wicked compatible with Turbo Drive (https://github.com/zombocom/wicked/pull/294)
 * Pass the provided step when raising InvalidStepError errors (https://github.com/zombocom/wicked/pull/284)
 
