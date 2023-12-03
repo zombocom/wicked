@@ -49,10 +49,17 @@ module Wicked
       @wicked_redirect_params = nil
     end
 
+    private def check_first_last_step!(step)
+      return steps.first if step.to_s == Wicked::FIRST_STEP
+      return steps.last if step.to_s == Wicked::LAST_STEP
+      return step
+    end
+
     private def setup_step_from(the_step)
       return if steps.nil?
 
       the_step ||= steps.first
+      the_step = check_first_last_step!(the_step)
 
       valid_steps = steps + self.class::PROTECTED_STEPS
       resolved_step = valid_steps.detect { |stp| stp.to_s == the_step }
