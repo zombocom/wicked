@@ -35,7 +35,7 @@ module Wicked::Controller::Concerns::Steps
     current_step_index < step_index_for(step_name)
   end
 
-  # will return true if the last step is the step passed in
+  # will return true if the previous step is the step passed in
   def previous_step?(step_name)
     return false unless current_and_given_step_exists?(step_name)
     (current_step_index - 1)  == step_index_for(step_name)
