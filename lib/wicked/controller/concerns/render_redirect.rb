@@ -26,7 +26,7 @@ module Wicked::Controller::Concerns::RenderRedirect
     else
       @skip_to = nil
       # Do not override user-provided status for render
-      options[:status] ||= :unprocessable_entity
+      options[:status] ||= 422
     end
   end
 
