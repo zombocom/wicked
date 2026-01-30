@@ -11,6 +11,7 @@ Dummy::Application.routes.draw do
   resources :status_codes
   resources :updates
   resources :update_params
+  resources :callbacks
 
   resources :nested do
     resources :builder, :controller => 'nested/builder'

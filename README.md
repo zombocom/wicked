@@ -140,6 +140,23 @@ We're passing `render_wizard` our `@user` object here. If you pass an object int
 
 Note that `render_wizard` does attempt to save the passed object. This means that in the above example, the object will be saved twice. This will cause any callbacks to run twice also. If this is undesirable for your use case, then calling `assign_attributes` (which does not save the object) instead of `update` might work better.
 
+You can also pass a block to `render_wizard` that will be executed only when the resource saves successfully:
+
+```ruby
+def update
+  @user = current_user
+  @user.assign_attributes(user_params)
+
+  render_wizard(@user) do
+    # This block executes only if @user.save succeeds
+    UserMailer.wizard_completed(@user).deliver_later
+    Analytics.track(user: @user, event: 'wizard_step_completed')
+  end
+end
+```
+
+The callback is useful for triggering side effects like sending emails, logging analytics events, or updating related records only when the save is successful.
+
 To get to this update action, you simply need to submit a form that PUT's to the same url
 
 ```erb
@@ -205,6 +222,7 @@ jump_to(:specific_step)                       # Jump to :specific_step
 render_wizard                                 # Renders the current step
 render_wizard(@user)                          # Shows next_step if @user.save, otherwise renders
 render_wizard(@user, context: :account_setup) # Shows next_step if @user.save(context: :account_setup), otherwise renders
+render_wizard(@user) { ... }                  # Executes block only if @user.save succeeds
 wizard_steps                                  # Gets ordered list of steps
 current_step?(step)                           # is step the same as the current request's step
 past_step?(step)                              # does step come before the current request's step in wizard_steps

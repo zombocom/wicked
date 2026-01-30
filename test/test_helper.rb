@@ -22,6 +22,8 @@ if ActiveRecord.version < Gem::Version.create("5.2.0")
   ActiveRecord::Migrator.migrate(migrate_path)
 elsif ActiveRecord.version < Gem::Version.create("6.0.0")
   ActiveRecord::MigrationContext.new(migrate_path).migrate
+elsif ActiveRecord.version >= Gem::Version.create("7.1.0")
+  ActiveRecord::MigrationContext.new(migrate_path).migrate
 else
   ActiveRecord::MigrationContext.new(migrate_path, ActiveRecord::SchemaMigration).migrate
 end

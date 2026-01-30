@@ -1,5 +1,7 @@
 ## Unreleased
 
+* Add callback block to `render_wizard` for post-save actions (https://github.com/zombocom/wicked/pull/310)
+
 ## 2.0.0
 
 * Return `422` (`:unprocessable_entity`) when form submissions fails. Turbo requires an HTTP Status code between 400-499 or 500-599 when a FormSubmission request fails. This pull request makes wicked compatible with Turbo Drive (https://github.com/zombocom/wicked/pull/294)
