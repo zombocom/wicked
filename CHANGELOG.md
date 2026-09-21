@@ -1,5 +1,7 @@
 ## Unreleased
 
+* Pin appraisal gemfiles to their intended Rails minor versions so CI tests Rails 7.1/7.0/6.0/5.2 instead of drifting onto 7.2/6.1, and hold `concurrent-ruby` below 1.3.5 on Rails 6.0 (https://github.com/zombocom/wicked/pull/312)
+
 ## 2.0.0
 
 * Return `422` (`:unprocessable_entity`) when form submissions fails. Turbo requires an HTTP Status code between 400-499 or 500-599 when a FormSubmission request fails. This pull request makes wicked compatible with Turbo Drive (https://github.com/zombocom/wicked/pull/294)
